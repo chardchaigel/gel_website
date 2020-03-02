@@ -1,0 +1,91 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 2 %}
+
+{% include "_topbar" %}
+
+<section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/images/product/head5.jpg');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{{ category.title }}</h1>
+        </div>
+    </div>
+</section>
+
+<section class="secondary-nav" data-spy="affix" data-offset-top="250" role="select">
+    <div class="container text-center">
+        <ul class="list-unstyled list-inline row hidden-xs">
+            {% set entries = craft.entries.section('specialCementProductChannel') %}
+            {% set relatedCats = craft.categories.group('constructionChemicalCategoryGroup').translated(1) %}
+            {% for keys, this_category in relatedCats %}
+            <li class="col-md-2">
+                <a href="{{ this_category.url }}" title="{{ this_category.title }}" class="{% if this_category.title == category.title %}active{% endif %}">
+                    <span class="cement-icon type{{ keys+1 }}"></span>
+                    <p>{{ this_category.title }}</p>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+        
+        <div class="row visible-xs">
+            <div class="col-sm-4 col-sm-offset-4 text-center">
+                <div class="form-group">
+                    <label  for="category">Category : </label>
+                    <select class="form-control">
+                        {% set entries = craft.entries.section('specialCementProductChannel') %}
+                        {% set relatedCats = craft.categories.group('constructionChemicalCategoryGroup').translated(1) %}
+                        {% for this_category in relatedCats %}
+                        <option>{{ this_category.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</section><!-- secondary-nav -->
+
+<section id="cement-type1" class="section _toppd-60 _bottompd-60">
+    <div class="container">
+        <h2 class="fonts montserrat-bold black text-center section _bottompd-30">{{ category.title }}</h2>
+        {% if singleProduct.specialCementTitleImage.first().getUrl() != '' %}
+        <img src="{{ category.specialCementTitleImage.first().getUrl() }}" title="{{ category.title }}" class="img-responsive">
+        {% endif %}
+
+        <p class="section _toppd-30">{{ category.descriptionSpecialCement }}</p>
+
+        <div id="main-product" class="row section _topmg-60">
+            {% for keys, singleProduct in category.specialcementproductmatrix %}
+            <div class="col-sm-4">
+                <div class="product-grid">
+                    {% if singleProduct.productmatriximage.first().getUrl() != '' %}
+                    <img src="{{ singleProduct.productmatriximage.first().getUrl() }}" title="{{ singleProduct.productmatrixtitle }}" class="img-responsive">
+                    {% else %}
+                    <img src="{{ craft.config.environmentVariables.baseUrl }}assets/img/no-img.jpg" title="{{ singleProduct.productmatrixtitle }}" class="img-responsive">
+                    {% endif %}
+                    <h3 class="name">{{ singleProduct.productmatrixtitle }}</h3>
+                    <p>{{ singleProduct.productMatrixDescription }}</p>
+
+                    {% if singleProduct.productMatrixUser != '' %}
+                    <h4 class="topic">User</h4>
+                    <p>{{ singleProduct.productMatrixUser }}</p>
+                    {% endif %}
+                    
+                    {% if singleProduct.productMatrixCharacteristics != '' %} 
+                    <h4 class="topic">Characteristics</h4>
+                    {{ singleProduct.productMatrixCharacteristics }}
+                    {% endif %}
+                    
+                    {% if singleProduct.productMatrixPackaging != '' %}  
+                    <h4 class="topic">Packaging</h4>
+                    <p>{{ singleProduct.productMatrixPackaging }}</p>
+                    {% endif %}
+                </div><!-- product-grid -->
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% include "_footer" %}
+{% include "_footer2" %}

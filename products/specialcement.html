@@ -1,0 +1,75 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 2 %}
+
+{% include "_topbar" %}
+
+<section class="title-page parallax" style="background-image:url('{{ entry.specialCementTitleImage.first().getUrl() }}');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{{ entry.title }}</h1>
+        </div>
+    </div>
+</section>
+
+<section class="section -side-image right-img background parallax" style="background-image:url('{{ entry.specialCementHeroImage.first().getUrl() }}');" data-img-width="1600" data-diff="0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="intro">
+                    {{ entry.specialCementHeroContent }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% for keys, singleProduct in entry.specialCementProductGroup %}
+<section class="section bg -cement  _toppd-100 _bottompd-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                {% if singleProduct.specialCementProductImage.first().getUrl() != '' %}
+                <img src="{{ singleProduct.specialCementProductImage.first().getUrl() }}" class="img-responsive img-product" title="{{ singleProduct.specialCementProductTitle }}">
+                {% else %}
+                <img src="{{ craft.config.environmentVariables.baseUrl }}assets/img/no-img.jpg" class="img-responsive img-product" title="{{ singleProduct.specialCementProductTitle }}">
+                {% endif %}
+            </div>
+            <div class="col-sm-9">
+                <div class="col-sm-12 section _bottommg-20">
+                    <h3 class="fonts montserrat-bold">{{ singleProduct.specialCementProductTitle }}</h3></div>
+                <div class="col-sm-7 section _bottommg-30">
+                    {{ singleProduct.specialCementProductDesc1 }}
+
+                    {% if singleProduct.specialCementProductDoc.first().getUrl() != '' %}
+                    <p class="section _topmg-30">
+                        <a href="{{ singleProduct.specialCementProductDoc.first().getUrl() }}" class="btn btn-green">
+                            <i class="fa fa-download"></i>DOWNLOAD BROCHURE
+                        </a>
+                    </p>
+                    {% endif %}
+
+                </div>
+                <div class="col-sm-5">
+                    {{ singleProduct.specialCementProductDesc2 }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}
+
+{% if entry.specialCementDocument.first().getUrl() != '' %}
+<section class="section _toppd-100 _bottompd-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <a href="{{ entry.specialCementDocument.first().getUrl() }}" class="btn btn-green"><i class="fa fa-download"></i>DOWNLOAD MORE INFORMATION</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% include "_footer" %}
+{% include "_footer2" %}

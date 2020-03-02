@@ -1,0 +1,46 @@
+<div class="col-sm-4 ">
+    {% if category is defined %}
+    {% set maincat = category.slug %}
+    {% endif %}
+    {% set open = 0 %}
+    <div class="sidebar set-height">
+        <!-- side-widget -->
+        <div class="side-widget">                        
+            <h4>{{ craft.entries.section('annualReportsPage').first().title }}</h4>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                {% set categories = craft.categories.group('annualReportsCategoryGroup').level(1) %}
+                {% nav keys, category in categories %}
+                {% set subCategories = craft.categories.descendantOf(category) %}
+                <div class="panel" id="{{ category.slug }}">
+                    {% if subCategories|length %}
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ keys }}" aria-expanded="true" aria-controls="collapse{{ keys }}">
+                                <span class="fa fa-plus-square-o"></span>
+                                {{ category.title }}
+                            </a>
+                        </h4>
+                    </div>
+                    {% else %}
+                    <a href="{{ category.url }}" style=" margin-top: 0; margin-bottom: 0; font-size: 16px; color: #1d1d1d; padding: 10px 15px;">{{ category.title }}</a>
+                    {% endif %}
+                    {% if subCategories|length %}
+                    <div id="collapse{{ keys }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ keys }}">
+                        <div class="panel-body">
+                            <ul>
+                                {% for subcategory in subCategories %}
+                                <li class="{% if maincat is defined and maincat == subcategory.slug %}active{% endif %}"><a href="{{ subcategory.url }}">{{ subcategory.title }}</a></li>
+                                {% endfor %}
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endnav %}
+            </div>
+        </div>
+        <!-- side-widget -->
+
+
+    </div><!-- sidebar -->

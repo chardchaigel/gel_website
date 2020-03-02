@@ -1,0 +1,74 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 2 %}
+
+{% include "_topbar" %}
+<section class="title-page parallax"
+    style="background-image:url('{{ entry.segmentGirderTitleImage.first().getUrl() }}'); background-attachment: fixed;"
+    data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">
+                {{ entry.title }}</h1>
+        </div>
+    </div>
+</section>
+
+<section class="section -side-image">
+    <div class="container-fluid">
+        <div class="row  d-md-flex align-self-center">
+            <div class="col-md-6 d-md-flex align-self-center">
+                <div class="intro ">
+                    {{ entry.segmentGirderHeroContent1 }}
+                </div>
+            </div>
+            <div class="col-md-6 px-0"><img src="{{ entry.segmentGirderHeroImage1.first().getUrl() }}"
+                    class="img-responsive img-100"></div>
+        </div>
+    </div>
+</section>
+
+<section class="section -side-image">
+    <div class="container-fluid">
+        <div class="row flex-nowrap d-md-flex">
+            <div class="col-md-6 order-md-2 d-md-flex align-self-center">
+                <div class="box box-20">
+                    {{ entry.segmentGirderHeroContent2 }}
+                    {% for keys, item in entry.segmentGirderHeroContentItem2 %}
+                    <div class="row section _topmg-{% if keys == 0 %}60{% else %}30{% endif %} d-flex align-self-center">
+                        <div class="col-md-4 col-xs-5 wow fadeInLeft" style="visibility: visible; animation-name: fadeInLeft;">
+                            <img src="{{ item.sectionitemlogo.first().getUrl() }}" class="img-responsive">
+                        </div>
+                        <div class="col-md-8 col-xs-7 wow fadeInRight d-flex align-self-center"
+                            style="visibility: visible; animation-name: fadeInRight;">
+                            <h4>{{ item.sectionitemname }}</h4>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-6 px-0 order-md-1"><img src="{{ entry.segmentGirderHeroImage2.first().getUrl() }}"
+                    class="img-responsive img-100"></div>
+        </div>
+    </div>
+</section>
+
+<section class="section background parallax"
+    style="background-image: url('{{ entry.segmentGirderHeroBackgroundImage3.first().getUrl() }}'); background-attachment: fixed; background-position: 50% 0px;"
+    data-img-width="1600" data-diff="0">
+    <div class="container-fluid">
+        <div class="row d-md-flex align-self-center">
+            <div class="col-md-6 pr-md-0">
+                <div class="box -white mr-md-0">
+                    {{ entry.segmentGirderHeroContent3 }}
+                </div> <!-- intro -->
+            </div>
+            <div class="col-md-6 px-0 order-md-1 d-md-flex align-self-center"><img
+                    src="{{ entry.segmentGirderHeroImage3.first().getUrl() }}" class="img-responsive"></div>
+        </div>
+    </div>
+</section>
+
+
+{% include "_footer" %}
+{% include "_footer2" %}

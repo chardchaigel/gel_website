@@ -1,0 +1,157 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 0 %}
+
+{% include "_topbar" %}
+
+<style>
+
+.offset:before { 
+    display: block; 
+    content: " "; 
+    height: 150px;      /* Give height of your fixed element */
+        margin-top: -150px; /* Give negative margin of your fixed element */    
+        visibility: hidden; 
+}
+
+</style>
+
+<section class="title-page parallax" style="background-image:url('{{ entry.workWithGelTitleImage.first().getUrl()}}'); background-position:50% 10%;" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">CAREER OPPORTUNITIES</h1>
+        </div>
+    </div>
+</section>
+
+<section class="section _toppd-100 _bottompd-30">
+    <div class="container">
+
+        <!-- Nav tabs -->
+        <ul id="employee" class="nav nav-tabs employee-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#GEL" class="fonts {% if craft.i18n.getCurrentLocale() == 'th' %}rsuregular{% else %}montserrat{% endif %} black" {% if craft.i18n.getCurrentLocale() == 'en' %}style="font-size: 20px;"{% endif %} aria-controls="GEL" role="tab" data-toggle="tab">Work with GEL</a></li>
+            <li role="presentation"><a href="#SEVEN_WIRE" class="fonts {% if craft.i18n.getCurrentLocale() == 'th' %}rsuregular{% else %}montserrat{% endif %} black" {% if craft.i18n.getCurrentLocale() == 'en' %}style="font-size: 20px;"{% endif %} aria-controls="SEVEN_WIRE" role="tab" data-toggle="tab">Work with SEVEN WIRE</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active section _bottommg-60" id="GEL">
+
+                <div id="why-gel" class="offset">
+                    <h2 class="fonts {% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} black">WHY GEL?</h2>
+                    <div class="row section _topmg-30 _bottommg-60">
+                        <div class="col-sm-12">
+                            <p>{{ entry.whyGel }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="available-jobs" class="offset">
+                    <h2 class="fonts {% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} black">AVAILABLE JOBS</h2>
+
+                    <div class="panel-group section _toppd-30 _bottompd-60" id="work-accordion" role="tablist" aria-multiselectable="true">
+
+                        {% for keys, job in entry.availableJob %}
+                            {% if keys % 3 == 0 %}
+                            <div  class="row">
+                            {% endif %}
+                            {% set foo = foo + 1 %}
+                                <div class="col-md-4">
+                                    <div class="panel panel-job">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#work-accordion" href="#collapse{{ keys+1 }}" aria-expanded="true" aria-controls="collapse{{ keys+1 }}" >
+                                                    <span class="num">{{ keys+1 }}</span>
+                                                    <span class="fa fa-plus-square-o pull-right"></span>
+                                                    {{ job.jobsTitle }}
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse{{ keys+1 }}" class="panel-collapse collapse collapse-job" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="panel-body">
+                                                {{ job.jobsDesc }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% if foo % 3 == 0 or foo == entry.availableJob|length %}    
+                            </div> 
+                            {% endif %}               
+                        {% endfor %}
+
+                    </div><!-- work-accordion -->
+                </div>
+                <div id="instruction" class="offset">
+                    <h2 class="fonts {% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} black">INSTRUCTIONS</h2>
+                    <div class="row section _topmg-30 _bottommg-60">
+                        <div class="col-sm-12">
+                            {{ entry.instruction }}
+                            {% if entry.applicationForm|length %}
+                            <p class="section text-center _topmg-30"><a href="{{ entry.applicationForm.first.getUrl() }}" class="btn btn-green"><i class="fa fa-download"></i>DOWNLOAD APPLICATION FORM</a></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div role="tabpanel" class="tab-pane section _bottommg-60" id="SEVEN_WIRE">
+                <div id="why-sevenwire">
+                    <h2 class="fonts {% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} black">WHY SEVEN WIRE?</h2>
+                    <div class="row section _topmg-30 _bottommg-60">
+                        <div class="col-sm-12">
+                            <p>{{ entry.whySevenWire }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="available-sevenwire-jobs">
+                    <h2 class="fonts {% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} black">AVAILABLE JOBS</h2>
+
+                    <div class="panel-group section _toppd-30 _bottompd-60" id="work-accordion" role="tablist" aria-multiselectable="true">
+
+                        {% for keys, sevenjob in entry.sevenWireAvailableJob %}
+                            {% if keys % 3 == 0 %}
+                            <div  class="row">
+                            {% endif %}
+                            {% set foo = foo + 1 %}
+                                <div class="col-md-4">
+                                    <div class="panel panel-job">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#work-accordion" href="#sevencollapse{{ keys+1 }}" aria-expanded="true" aria-controls="sevencollapse{{ keys+1 }}" >
+                                                    <span class="num">{{ keys+1 }}</span>
+                                                    <span class="fa fa-plus-square-o pull-right"></span>
+                                                    {{ sevenjob.sevenWirreJobsTitle }}
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="sevencollapse{{ keys+1 }}" class="panel-collapse collapse collapse-job" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="panel-body">
+                                                {{ sevenjob.sevenWirreJobsDesc }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% if foo % 3 == 0 or foo == entry.sevenWireAvailableJob|length %}    
+                            </div> 
+                            {% endif %}               
+                        {% endfor %}
+
+                    </div><!-- work-accordion -->
+                </div>
+                <div id="instruction">
+                    <h2 class="fonts {% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} black">INSTRUCTIONS</h2>
+                    <div class="row section _topmg-30 _bottommg-60">
+                        <div class="col-sm-12">
+                            {{ entry.sevenWireInstruction }}
+                            {% if entry.sevenWireApplicationForm|length %}
+                            <p class="section text-center _topmg-30"><a href="{{ entry.sevenWireApplicationForm.first.getUrl() }}" class="btn btn-green"><i class="fa fa-download"></i>DOWNLOAD APPLICATION FORM</a></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+
+    </div>
+</section>
+
+{% include "_footer" %}
+{% include "_footer2" %}

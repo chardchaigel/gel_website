@@ -1,0 +1,78 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 2 %}
+
+{% include "_topbar" %}
+<section class="title-page parallax" style="background-image:url('{{ entry.precastTitleImage.first().getUrl() }}');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{{ entry.title }}</h1>
+        </div>
+    </div>
+</section>
+
+<section class="section -side-image right-img background parallax" style="background-image:url('{{ entry.precastHeroImage.first().getUrl() }}');" data-img-width="1600" data-diff="0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="intro">
+                    {{ entry.precastHeroContent }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section background parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/pd3-2-2.jpg');" data-img-width="1600" data-diff="0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-6">
+                <div class="intro box -white">
+                    {{ entry.precastContent1 }}
+                </div><!-- intro -->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section -definition">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1 text-center">
+                {{ entry.precastFeatureTitle }}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section _toppd-100 _bottompd-100">
+    <div class="container">
+
+        <div class="sectional-header section _bottommg-60">
+            <h3 class="heading">Production Procedure</h3>
+        </div>
+        
+        {% for keys, singleProcedure in entry.precastProductionProcedure %}
+        <div class='section _topmg-30'>
+            {% if singleProcedure.procedureTitle != '' %}
+            <h4 class="fonts {% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} black">{{ singleProcedure.procedureTitle }}</h4>
+            {% endif %}
+            <div class="row section _topmg-30">
+                <div class="col-sm-4 wow fadeInLeft">
+                    <img src="{{ singleProcedure.procedureImage.first().getUrl() }}" class="img-responsive">
+                </div>
+                <div class="col-sm-8 wow fadeInRight">
+                   {{ singleProcedure.procedureContent }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+
+{% include "_footer" %}
+{% include "_footer2" %}

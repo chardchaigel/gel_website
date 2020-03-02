@@ -1,0 +1,70 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 2 %}
+
+{% include "_topbar" %}
+
+<section class="title-page parallax" style="background-image:url('{{ entry.postTensionTitleImage.first().getUrl() }}');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{{ entry.title }}</h1>
+        </div>
+    </div>
+</section>
+
+<section class="section -side-image right-img background parallax" style="background-image:url('{{ entry.postTensionHeroImage.first().getUrl() }}');" data-img-width="1600" data-diff="0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="intro">
+                    {{ entry.postTensionHeroContent }}
+                </div>                   
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section background parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/img2.jpg');" data-img-width="1600" data-diff="0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-6">
+                <div class="intro box -white">
+                    {{ entry.postTensionContent1 }}
+                </div><!-- intro -->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section -definition">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1 text-center">
+                {{ entry.postTensionFeatureTitle }}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section -three-colored">
+    <div class="container-fluid">
+        <div class="row check-height">
+            <div class="col-md-6 green1  set-height">
+                <div class="wrap">
+                    {{ entry.postTensionContent2.first().postTensionDescription }}
+                </div>
+            </div><!-- green1 -->
+
+            <div class="col-md-6 green3  set-height">
+                <div class="wrap">
+                    {{ entry.postTensionContent2.last().postTensionDescription }}
+                </div>
+            </div><!-- green3 -->
+
+        </div>
+    </div>
+</section>
+
+{% include "_footer" %}
+{% include "_footer2" %}

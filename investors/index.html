@@ -1,0 +1,213 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 4 %}
+
+{% include "test/_topbar-new" %}
+
+<section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/work-banner1.jpg');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            <!-- <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{{ craft.entries.section('financialStatements').first().title }}</h1> -->
+            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">Financial Statements</h1>
+        </div>
+    </div>
+</section>
+
+<section class="section _toppd-100 _bottompd-100">
+    <div class="container">
+
+        <div class="row check-height">
+            <div class="col-sm-8 set-height">
+                <h3 class="fonts {% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} black section _bottommg-30">{{ category.title }}</h3>
+                
+                {% if category is defined %}
+                {% set Categories = craft.categories.group('financialStatementsGroup').slug(category.slug) %}
+                {% set searchParams = {
+                    relatedTo:  Categories,
+                    section: 'financialStatements',
+                    limit: 8
+                }%}
+                {% else %}
+                {% set searchParams = {
+                    section: 'financialStatements',
+                    limit: 8
+                }%}
+                {% endif %}
+                {% set counter = 0 %}
+
+                {% set thumb = {
+                    mode: 'fit',
+                    width: 180,
+                    height: 215,
+                    quality: 85, 
+                    position: 'center-center' 
+                } %}
+                
+                {% paginate craft.entries(searchParams) as pageInfo, pageEntries %}
+                        
+                {% for keys, entry in pageEntries %}
+                    <div class="row blog-post">
+                        <div class="col-sm-4">
+                            <a href="{% if entry.type == 'link' %}{{ entry.financialStatementsEntryDocument.first().getUrl() }}{% else %}{{ entry.url }}{% endif %}">
+                                <img src="{% if  entry.entryThumb.first()|length %}{{ entry.entryThumb.first().getUrl(thumb) }}{% else %}{{ craft.config.environmentVariables.baseUrl }}assets/img/cover_investor_GEL1.png{% endif %}" class="img-responsive">
+                            </a>
+                        </div>
+                        <div class="col-sm-8">                      
+                            <h3 class="blog-title"><a href="{% if entry.type == 'link' %}{{ entry.financialStatementsEntryDocument.first().getUrl() }}{% else %}{{ entry.url }}{% endif %}">{{ entry.title }}</a></h3>
+                            <div class="post-info"><span class="date"><i class="icon-calendar"></i> <span class="post-date updated">{{ entry.postDate.format('F d, Y') }}</span><span class="date"></span></span></div>
+                            <div class="post-footer"><a class="pull-right link" href="{% if entry.type == 'link' %}{{ entry.entryDocument.first().getUrl() }}{% else %}{{ entry.url }}{% endif %}"><span>Read more</span> <i class="fa fa-angle-double-right"></i></a></div>
+                        </div>
+                    </div>
+                {% endfor %}
+                
+                <nav class="text-center"> 
+                    <ul class="pagination">
+
+                        {% if pageInfo.prevUrl %}
+                            <li class=""><a href="{{ pageInfo.prevUrl }}" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                        {% else %}
+                            <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                        {% endif %}
+
+                        {% for page, url in pageInfo.getPrevUrls(3) %}
+                            <li><a href="{{ url }}">{{ page }}</a></li>
+                        {% endfor %}
+
+                        <li class="active"><a href="#">{{ pageInfo.currentPage }} <span class="sr-only">(current)</span></a></li>
+
+                        {% for page, url in pageInfo.getNextUrls(3) %}
+                            <li><a href="{{ url }}">{{ page }}</a></li>
+                        {% endfor %}
+
+                        {% if pageInfo.nextUrl %}
+                            <li><a href="{{ pageInfo.nextUrl }}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                        {% else %}
+                            <li class="disabled"><a href="{{ pageInfo.nextUrl }}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                        {% endif %}
+                    </ul> 
+                </nav>
+
+            </div>
+            
+             
+            
+            {% include "test/_financial-statements-sidebar" %}
+
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section _toppd-100 _bottompd-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="info-contact">
+                    <h3>GENERAL ENGINEERING PUBLIC COMPANY LIMITED</h3>
+
+                    <h4>Contact Investor Relation</h4>
+                    <p>Tel :  <a href="tel:{{ globalField.telephone }}">{{ globalField.telephone }}</a></p>
+                    <p>Email : <a href="mailto:{{ globalField.email }}">{{ globalField.email }}</a></p>
+                </div><!-- info-contact -->
+            </div>
+            
+            {% macro errorList(errors) %}
+                {% if errors %}
+                    {% for error in errors %}
+                        <small class="error"> {{error}}</small>
+                    {% endfor %}
+                {% endif %}      
+            {% endmacro %}   
+
+            {% from _self import errorList %}
+
+            <div class="col-sm-8">
+                <form  id="form-contact-investor" method="post" action="" accept-charset="UTF-8" >
+                    {{ getCsrfInput() }}
+                    <input type="hidden" name="action" value="contactForm/sendMessage">
+
+                    <div class="row">
+                        <div class="form-group col-sm-6 {{ message is defined and message and message.getErrors('fromName') ? 'has-error' }}">
+                            <input type="text" name="fromName" id="fromName" value="{% if message is defined %}{{ message.fromName}}{% endif %}" 
+                                    placeholder="Your name" size="22" tabindex="1" aria-required="true" class="form-control requiredField name input-name label-better ">
+
+                             {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
+                        </div>
+                        <div class="form-group col-sm-6 {{ message is defined and message and message.getErrors('fromEmail') ? 'has-error' }}">
+                            <input type="text" name="fromEmail" id="fromEmail" value="{% if message is defined %}{{ message.fromEmail}}{% endif %}" 
+                                   placeholder="Your e-mail" size="22" tabindex="3" aria-required="true" class="form-control requiredField email input-email label-better " >
+                            {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}                      
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-12 {{ message is defined and message and message.getErrors('subject') ? 'has-error' }}">
+                            <input type="text" name="subject" id="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}"
+                                   placeholder="Your subject" size="22" tabindex="2" aria-required="true" class="form-control requiredField subject input-phone label-better " >
+                            {{ message is defined and message ? errorList(message.getErrors('subject')) }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-12 {{ message is defined and message and message.getErrors('message') ? 'has-error' }}">
+                            <textarea name="message" id="message" rows="5" class="form-control requiredField label-better" placeholder="Message">{% if message is defined %}{{ message.message}}{% endif %}</textarea>
+                            {{ message is defined and message ? errorList(message.getErrors('message')) }}         
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <button type="submit" class="btn btn-green">Send Message</button></div>
+                    </div>
+                    <input id="pooh" name="pooh" type="text" style="display: none;">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% include "_footer" %}
+<script src="{{ craft.config.environmentVariables.baseUrl }}assets/js/jquery.shorten.js"></script>
+<script type="text/javascript">
+
+    {% set m = craft.session.getFlash('success') %}
+    {% if m is defined and m == 1 %}
+        alert('Congratulation, Your message has been sent!!');
+    {% elseif m is defined and m == 2 %}
+        alert('There was a problem with your submission, please check the form and try again!');
+    {% elseif m is defined and m == 3 %}
+        alert('Thank you for subscribe with us :)');
+    {% endif %}
+$(function(){    
+    $('#form-contact-investor').validate({       // initialize plugin on each form
+        // global options for plugin
+        rules: { 
+            'fromName': {
+                required: true
+            },
+            'fromEmail': {
+                required: true,
+                email: true
+            }       
+        },
+        messages: {              
+            'fromEmail': "Please enter a valid email address",
+            'fromName': "Please enter a name"
+        },
+        errorPlacement: function(error, element) {
+            $(element).closest('.form-group').addClass('has-error');
+            error.insertAfter($(element));
+
+        }
+    });
+    $.each($('.popular-post span.title'), function(i, v) {
+        if ($(v).find('.shortcontent').length == 0) {
+            $(v).shorten({
+                "showChars": 125,
+                "moreText": " "
+            });
+        }
+    });
+});    
+</script>
+{% include "_footer2" %}

@@ -1,0 +1,212 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 4 %}
+
+{% include "investors/_topbar-new" %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head9.png');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b" style="text-transform: uppercase;">
+            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{{ menuGlobal.corporateGovernanceMenu }}</h1>
+        </div>
+    </div>
+</section>
+
+<section class="section _toppd-60 _bottompd-100">
+    
+    <div class="sectional-header">
+        <h3 class="heading">{{ craft.entries.section('whistleBlowing').first().title }}</h3>  
+    </div>
+
+    <!--
+    <script src="http://www.gel.co.th/assets/js/whistle-blowing.js"></script>
+    -->
+
+    <script>
+        
+        var config;
+
+        $(document).ready(function() {
+            clearFields();
+
+            $.getJSON('/investors/config.json', function(data) {
+                config = data;
+                // console.log("Service: " + config.IrService);
+                // console.log("URL: " + JSON.stringify(data));
+            });
+
+            $('#submit-btn').click(function() {
+                clearErrors();
+
+                try {
+                    let name = getInput($('#name').val());
+                    let email = getInput($('#email').val());
+                    let tel = getInput($('#tel').val());
+                    let information = getInput($('#information').val());
+
+                    if(checkForm(email, information)) {
+                        console.log('Submitted!!');
+                        sendEmail(name, email, tel, information);
+                    }
+                }
+                catch(e) {
+                    console.error(e.message);
+                    alert('Cannot send your request. Error: ' + e.message);
+                }   
+            })
+        });
+
+        
+
+        function sendEmail(name, email, tel, information) {
+            // let api = "http://www.gel.co.th/mail-scripts/index.php";
+        
+            let jsonData;
+
+            try {
+                jsonData = JSON.stringify({funct:'wb', name: name, email: email, tel: tel, information: information});
+                console.log(jsonData);
+                console.log("Service: " + config.wbService);
+            }
+            catch(e) {
+                console.error('Cannot send your request. Error: ' + e.message);
+            }
+            
+
+            $.ajax({
+                type: "POST",
+                url: config.wbService,
+                data: jsonData
+                //dataType: "json"
+            })
+            .done(function(data) {
+                console.log('Done');
+                try {
+                    let parsedData = $.parseJSON(data);
+                    console.log('Finish submission. Status: ' + parsedData.status + ', MSG: ' + parsedData.msg);
+
+                    if(parsedData.status === false) {
+                        console.log('Error: ' + parsedData.msg);
+                        alert('Error: ' + parsedData.msg);
+                    }
+                    else {
+                        // console.log('Success');
+                        alert('Email has been sent to our staff');
+                    }
+                }
+                catch (e) {
+                    console.error(e.message);
+                    alert('Cannot send your request. Error: ' + e.message);
+                }
+                
+            })
+            .fail(function(xhr, status, errorThrown) {
+                console.log('Failed');
+                alert('Cannot send your request. Error: ' + errorThrown);
+                console.error("Fail: " + status + ", " + errorThrown);      
+                // console.log("Fail: " + status + ", " + errorThrown);                            
+                // console.log(xhr.responseText);
+                // console.dir(xhr);
+
+                // alert("Cannot send your request. Error: " + status + ", " + errorThrown);
+            // })
+            // .always(function(xhr, status) {                            
+            //     console.log('Always: ');
+            });
+        }
+
+        function getInput(input) {
+            return input;
+        }
+
+        function clearErrors() {
+            $('#email-error').hide();
+            $('#information-error').hide();
+        }
+
+        function clearFields() {
+            $('#name').val("");
+            $('#email').val("");
+            $('#tel').val("");
+            $('#information').val("");
+        }
+
+        function checkForm() {
+            let error = false;
+
+            console.log($('#email').val() + ":before");
+            console.log($('#information').val() + ":before");
+
+            if( $('#email').val() == null
+                || $('#email').val() == undefined
+                || $('#email').val() === '') {
+                error = true;
+                
+                $('#email-error').text('Please enter your email.');
+                $('#email-error').show();
+                console.log($('#email').val() + ":after");
+            }
+            else {
+                if ( (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($('#email').val())) === false ) {
+                    console.log('Wrong email format!');
+
+                    $('#email-error').text('Wrong email format!');
+                    $('#email-error').show();
+                    error = true;
+                }
+            }
+
+            if( $('#information').val() == null
+                || $('#information').val() == undefined
+                || $('#information').val() === '') {
+                error = true;
+
+                $('#information-error').text('Please enter information to report.');
+                $('#information-error').show();
+                console.log($('#information').val() + ":after");
+            }
+            
+            return !error;
+        }        
+    </script>
+
+
+    <div class="container" style="width:50%">
+        <div class="row">
+                
+                <!--<form class="needs-validation" action="http://www.gel.co.th/gel_co_th_scripts/index.php">-->
+                <form class="needs-validation" action="#">      
+                    <div class="form-group">
+                        <label for="email">Email <span class="text-danger">*</span></label>
+                        <input class="form-control" type="text" name="email" id="email" /> 
+                        <div id="email-error" style="color:red"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input class="form-control" type="text" name="name" id="name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="tel">Tel</label>
+                        <input class="form-control" type="text" name="tel" id="tel" />
+                    </div>
+                    <div class="form-group">
+                        <label for="information">Information <span class="text-danger">*</span></label>
+                        <textarea class="form-control" name="information" id="information" rows="4"></textarea>
+                        <div id="information-error" style="color:red"></div>
+                    </div>
+                    <button type="button" name="submit-btn" id="submit-btn" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
+       
+
+</section>
+
+
+
+{% include "_footer" %}
+{% include "_footer2" %}
+

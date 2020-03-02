@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html class="ie">
+<![endif]-->
+<!--[if !(IE 8) ]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+<head>
+        
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    {% if category is defined %}
+        {% if category.metaTitle != '' %}{% set meta_title = category.metaTitle %}{% else %}{% set meta_title = globalField.metaTitle %}{% endif %} 
+        {% if category.metaDescription != '' %}{% set meta_desc = category.metaDescription %}{% else %}{% set meta_desc = globalField.metaDescription %}{% endif %} 
+        {% set og = {
+            mode: 'crop',
+            width: 600,
+            height: 315,
+            quality: 85,
+            position: 'center-center'
+        } %}
+        {% if category.ogImage|length %}{% set meta_image = category.ogImage.first().getUrl(og) %}{% elseif globalField.ogImage|length %}{% set meta_image = globalField.ogImage.first().getUrl() %}{% else %}{% set meta_image = '' %}{% endif %}
+    {% else %}
+        {% if entry is defined %}
+            {% if entry.metaTitle != '' %}{% set meta_title = entry.metaTitle %}{% else %}{% set meta_title = globalField.metaTitle %}{% endif %} 
+            {% if entry.metaDescription != '' %}{% set meta_desc = entry.metaDescription %}{% else %}{% set meta_desc = globalField.metaDescription %}{% endif %} 
+            {% set og = {
+                mode: 'crop',
+                width: 600,
+                height: 315,
+                quality: 85,
+                position: 'center-center'
+            } %}
+            {% if entry.ogImage|length %}{% set meta_image = entry.ogImage.first().getUrl(og) %}{% elseif globalField.ogImage|length %}{% set meta_image = globalField.ogImage.first().getUrl() %}{% else %}{% set meta_image = '' %}{% endif %}
+        {% else %}
+            {% set meta_title = globalField.metaTitle %}
+            {% set meta_desc = globalField.metaDescription %}
+            {% if globalField.ogImage|length %}{% set meta_image = globalField.ogImage.first().getUrl() %}{% else %}{% set meta_image = '' %}{% endif %}
+        {% endif %}
+    {% endif %}
+    <title>{{ meta_title }}</title>
+    <link rel="home" href="{{ siteUrl }}" />
+    <meta property="og:type" content="website" />
+    <meta name="description" content="{{ meta_desc }}" />
+    <meta property="og:title" content="{{ meta_title }}" />
+    <meta property="og:image" content="{{ meta_image }}" />
+    <meta property="og:image:width" content="600" /> 
+    <meta property="og:image:height" content="315" />
+    <meta property="og:site_name" content="General Engineering Limited" />            
+    <meta property="og:description" content="{{ meta_desc }}" />
+
+    <meta property="og:url" content="{{ siteUrl }}" />
+    <meta property="og:locale" content="th_TH" />
+    <!--meta property="fb:app_id" content="753800398096651" /-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="{{ url(craft.request.path) }}" />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ craft.config.environmentVariables.baseUrl }}assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ craft.config.environmentVariables.baseUrl }}assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ craft.config.environmentVariables.baseUrl }}assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="{{ craft.config.environmentVariables.baseUrl }}assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="{{ craft.config.environmentVariables.baseUrl }}assets/img/favicon-gel.png">
+    
+    <!--style>
+		body{
+			-webkit-filter: grayscale(65%);
+			-moz-filter: grayscale(65%);
+			-ms-filter: grayscale(65%);
+			-o-filter: grayscale(65%);
+			filter: grayscale(65%);
+		}
+	</style-->	
+     

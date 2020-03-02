@@ -1,0 +1,66 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 3 %}
+
+{% include "test/_topbar-new" %}
+<!--
+<section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head7.jpg');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{% if craft.i18n.getCurrentLocale() == 'th' %}ผลงานของเรา{% else %}PORTFOLIOS{% endif %}</h1>
+            <div class="inside">{{ category.title }}</div>
+        </div>
+    </div>
+</section>
+-->
+<section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head9.png');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{{ entry.title }}</h1>
+        </div>
+    </div>
+</section>
+
+<section class="section _toppd-100 _bottompd-100">
+    <div class="sectional-header">
+        <h3 class="heading">{{ entry.title }}</h3>
+    </div>
+    <div class="container" style="width:70%; padding-left: 50px;">
+        <p style="text-align:justify;">      
+            <p>{{ entry.entryContent }}</p> 
+            <!--     
+            <p><b>29 Apr 2019</b></p>
+            <p style="margin-left:20px;">{{ entry.entryContent }}Annual General Meeting 2019 Time 14:30 at Teeneedee Hotel and Bangkok Golf Club<br>
+            </p>
+            <p><b>24 Apr 2018</b></p>
+            <p style="margin-left:20px;">Annual General Meeting 2018 Time 14:30 at Teeneedee Hotel and Bangkok Golf Club
+            </p>
+            <p>27 Apr 2017
+            </p>
+            <p style="margin-left:20px;">Annual General Meeting 2017
+            </p>
+            <p>28 Mar 2017
+            </p>
+            <p style="margin-left:20px;">Opportunity Day Q4/2016 09:00 - 10:00 at Room 603 at the Stock Exchange of Thailand Building
+            </p>
+            <p>11 Nov 2016
+            </p>
+            <p style="margin-left:20px;">Q3/2016 Financial Results Announcement<br>
+            </p>
+            <p>21 Apr 2016
+            </p>
+            <p style="margin-left:20px;">Annual General Meeting 2016<br>
+            </p>
+            <p style="margin-left:20px;"><br>
+            </p>
+            <p><br>
+            </p>
+            -->
+        </p>
+    </div>
+</section>
+
+
+
+{% include "_footer" %}
+{% include "_footer2" %}

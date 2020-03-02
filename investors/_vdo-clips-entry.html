@@ -1,0 +1,87 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 4 %}
+
+{% include "investors/_topbar-new" %}
+<section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head9.png');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b" style="text-transform: uppercase;">
+            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{{ menuGlobal.newsRoomMenu }}</h1>
+        </div>
+    </div>
+</section>
+
+<section class="section _toppd-60 _bottompd-100">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-8">
+
+                <div class="blog-item">
+                    <h1 class="heading fonts  -rsublod">{{ entry.title }}</h1>
+                    <p class="meta"><i class="fa fa-user"></i> {{ entry.author.fullName }}  <i class="fa fa-clock-o"></i>{{ entry.postDate.format('F d, Y') }}</p>
+                    <div class="dec" id="entry-content" style="padding-top: 15px;">
+                        {{ entry.vdoClipsEntryContent }}
+                    </div>
+                </div>
+
+            </div>
+
+            {% include "investors/_vdo-clips-sidebar" %}
+
+        </div>
+
+    </div>
+</section>
+
+<section id="contact" class="section _toppd-100 _bottompd-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="info-contact">
+                    <h3>GENERAL ENGINEERING PUBLIC COMPANY LIMITED</h3>
+
+                    <h4>Contact Investor Relation</h4>
+                    <p>Tel :  <a href="tel:{{ globalField.telephone }}">{{ globalField.telephone }}</a></p>
+                    <p>Email : <a href="mailto:{{ globalField.email }}">{{ globalField.email }}</a></p>
+                </div><!-- info-contact -->
+            </div>
+
+            <div class="col-sm-8">
+                <form  id="form-contact" >
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <input type="text" class="form-control" id="InputName" placeholder="Name">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <input type="email" class="form-control" id="InputEmail" placeholder="Email">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <input type="text" class="form-control" id="InputSubject" placeholder="Subject">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <textarea class="form-control" rows="10"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <button type="submit" class="btn btn-green">Send Message</button
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% include "_footer" %}
+{% include "_footer2" %}

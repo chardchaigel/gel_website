@@ -1,0 +1,168 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 4 %}
+
+<style>
+    .cg-image-l1 {
+        width:442px; 
+        height:293px;
+        padding: 10px;
+    }
+
+    .cg-image-l2{
+        float: left;        
+    }
+
+    .cg-download-l2 {
+        padding-left:150px;
+    }
+
+    .cg-heading {
+        padding-top: 60px;
+    }
+</style>
+
+{% include "investors/_topbar-new" %}
+
+<section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head9.png');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b" style="text-transform: uppercase;">
+            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{{ menuGlobal.corporateGovernanceMenu }}</h1>
+        </div>
+    </div>
+</section>
+
+<section class="section _toppd-60 _bottompd-100">
+    <!--
+    <div class="container" style="width:70%; padding-left: 50px;">
+        <p style="text-align:justify;">      
+            <p>{{ entry.entryContent }}</p>
+        </p>
+    </div>
+    --> 
+    <!--
+    <div class="sectional-header">
+        <h3 class="heading">{{ craft.entries.section('cgPolicy').first().title }}</h3>
+    </div>
+    -->   
+    <div class="container" align="center" sytle="display:inline;" width="60%">
+        <div class="row">
+            <div class="col-12">
+               <h3 class="heading">COPORATE GOVERNANCE</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <a target="_blank" href="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Docs/gel-cg-policy-en.pdf">
+                    <img class="cg-image-l1" src="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Icons/1-cg-policy-btn.png">
+                </a>
+            </div>
+            <div class="col-md-5">
+                <a target="_blank" href="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Docs/gel-cg-code-conduct-th.pdf">
+                    <img class="cg-image-l1" src="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Icons/1-code-of-conduct-btn.png">
+                </a>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <a target="_blank" href="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Docs/gel-risk-factor-en.pdf">
+                    <img class="cg-image-l1" src="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Icons/1-risk-factors-policy-btn.png">
+                </a>
+            </div>
+            <div class="col-md-5">
+                <a target="_blank" href="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Docs/gel-cg-anti-corruption-policy-th.pdf">
+                    <img class="cg-image-l1" src="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Icons/1-anti-corruption-policy-btn.png">
+                </a>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-12" style="padding-top:60px;">
+               <h3 class="heading">CHARTER</h3>
+            </div>
+            <div class="row">                        
+                <div class="col-md-12 cg-download-l2">
+                    <a target="_blank" href="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Docs/gel-cg-policy-en.pdf">
+                        <img class="cg-image-l2" src="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Icons/2-charter-board-of-director.png">
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 cg-download-l2">
+                    <a target="_blank" href="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Docs/gel-cg-code-conduct-th.pdf">
+                        <img class="cg-image-l2" src="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Icons/2-charter-audit-committee.png">
+                    </a>
+                </div>                
+            </div>
+            <div class="row">                
+                <div class="col-md-12  cg-download-l2">
+                    <a target="_blank" href="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Docs/gel-risk-factor-en.pdf">
+                        <img class="cg-image-l2" src="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Icons/2-charter-nomination.png">
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 cg-download-l2">
+                    <a target="_blank" href="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Docs/gel-cg-anti-corruption-policy-th.pdf">
+                        <img class="cg-image-l2" src="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Icons/2-charter-risk-management.png">
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 cg-download-l2">
+                    <a target="_blank" href="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Docs/gel-charter-cg-th.pdf">
+                        <img class="cg-image-l2" src="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Icons/2-charter-cg.png">
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 cg-download-l2">
+                    <a target="_blank" href="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Docs/gel-charter-management-th.pdf">
+                        <img class="cg-image-l2" src="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Icons/2-charter-excom.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 cg-heading">
+               <h3 class="heading">CORPORATE DOCUMENTS</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                    <a target="_blank" href="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Docs/gel-cg-moa-th.pdf">
+                        <img src="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Icons/3-memo-association.png">
+                    </a>
+                </div>
+                <div class="col-md-5">
+                    <a target="_blank" href="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Docs/gel-cg-aoa-en.pdf">
+                        <img src="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Icons/3-article-association.png">
+                    </a>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                    <a target="_blank" href="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Docs/gel-cg-affidavit-th.pdf">
+                        <img src="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Icons/3-affidavit.png">
+                    </a>
+                </div>
+                <div class="col-md-5">
+                    <a target="_blank" href="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Docs/20190306-gel-certified-comapnies-en.pdf">
+                        <img src="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/Corporate-Governance/Icons/3-certified-company.png">
+                    </a>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% include "_footer" %}
+{% include "_footer2" %}

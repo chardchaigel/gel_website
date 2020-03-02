@@ -1,0 +1,117 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 3 %}
+
+{% include "_topbar" %}
+
+<section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head7.jpg');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{% if craft.i18n.getCurrentLocale() == 'th' %}ผลงานของเรา{% else %}PORTFOLIOS{% endif %}</h1>
+            <div class="inside">{{ category.title }}</div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section _toppd-100 _bottompd-100">
+    <div class="container">
+        {% if category is defined %}
+        <div id="portfolio-slide" class="slider-pro">
+            <div class="sp-slides">
+                
+                {% set Categories = craft.categories.group('portfoliosCategoryGroup').slug(category.slug) %}
+                {% set searchParams = {
+                    relatedTo: Categories,
+                    section: 'portfolios'
+                }%}
+                {% set entries = craft.entries(searchParams) %}
+                {% if entries|length %}
+                {% for keys, entry in entries %}
+                <div class="sp-slide">
+                    <img class="sp-image sp-static" src="{{ craft.config.environmentVariables.baseUrl }}assets/img/blank.gif"
+                                    data-src="{{ entry.portfolioImage.first().getUrl() }}"
+                                    data-retina="{{ entry.portfolioImage.first().getUrl() }}"/>
+
+                    <div class="sp-caption sp-static" data-position="topRight">
+                        <h3 class="name fonts {% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %}">{{ entry.title }}</h3>
+
+                        {{ entry.portfolioContent }}
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="sp-thumbnails">
+                {% set thumb = {
+                    mode: 'crop',
+                    width: 200,
+                    height: 133,
+                    quality: 85,
+                    position: 'center-center'
+                } %}
+                {% if entries|length %}
+                {% for keys, entry in entries %}
+                    <img class="sp-thumbnail" src="{{ entry.portfolioThumbImage.first().getUrl(thumb) }}"/>
+                {% endfor %}
+                {% endif %}  
+            </div>
+        </div><!-- portfolio-slide -->
+        {% endif %}
+    </div>
+</section>
+
+<section class="section bg -cement  _toppd-100 _bottompd-100">
+    <div class="container">
+
+        <div class="sectional-header">
+            <h3 class="heading">NOTABLE PROJECTS</h3>
+            <h4 class="subheading">Since 1962 - To date</h4>
+        </div>
+        
+        {% if category.notableProjectWithPeriod %}
+            
+            <div class="row">
+                <div id="notable-projects"  class="col-sm-8 col-sm-offset-2">
+                    <div class="col-sm-4">
+                        <ul id="" class="nav nav-tabs tabs-left"><!-- Nav tabs -->
+                            {% for keys, singleNotable in category.notableProjects %}
+                            <li class="{% if keys == 0 %}active{% endif %}"><a href="javascript:void(0);" data-target="#tab_{{ keys }}" data-toggle="tab">{{ singleNotable.periods }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="col-sm-8">
+                        <div class="tab-content"><!-- Tab panes -->
+                            {% for keys, singleNotable in category.notableProjects %}
+                            <div class="tab-pane active" id="tab_{{ keys }}">
+                                {{ singleNotable.projects }}
+                            </div>
+                            {% endfor %} 
+                        </div>
+                    </div>
+                </div>
+ 
+            </div>
+
+        {% else %}
+        
+            <div class="row">
+                <div id="notable-projects"  class="col-sm-12">
+                    {% for keys, singleNotable in category.notableProjects %}
+                    <div class="col-sm-3">
+                        {{ singleNotable.projects }}  
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+
+        {% endif %}
+        
+                	
+</section>
+
+{% include "_footer" %}
+{% include "_footer2" %}

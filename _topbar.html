@@ -1,0 +1,108 @@
+<div id="main-nav" >
+    <nav class="navbar navbar-default" role="navigation" >
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ siteUrl }}"><img src="{{ craft.config.environmentVariables.baseUrl }}assets/img/logo.jpg" class="img-responsive"></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="{% if top == 1 %}active{% endif %}"><a href="{{ siteUrl }}">{{ craft.entries.id(2).first().title }} <span class="sr-only">(current)</span></a></li>
+                    <li class="{% if top == 2 %}active{% endif %} dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{% if craft.i18n.getCurrentLocale() == 'th' %}ผลิตภัณฑ์{% else %}PRODUCT{% endif %} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ craft.entries.id(8).first().url }}">{{ craft.entries.id(8).first().title }}</a></li>
+                            <li><a href="{{ craft.entries.id(1464).first().url }}">{{ craft.entries.id(1464).first().title }}</a></li>
+                            <li><a href="{{ craft.entries.id(9).first().url }}">{{ craft.entries.id(9).first().title }}</a></li>
+                            <li><a href="{{ craft.entries.id(10).first().url }}">{{ craft.entries.id(10).first().title }}</a></li>
+                            <li><a href="{{ craft.entries.id(11).first().url }}">{{ craft.entries.id(11).first().title }}</a></li>
+                            <li><a href="{{ craft.entries.id(12).first().url }}">{{ craft.entries.id(12).first().title }}</a></li>
+
+                            {% set relatedCats = craft.categories.group('constructionChemicalCategoryGroup').translated(1).first() %}
+                            <li><a href="{{ relatedCats.url }}">{% if craft.i18n.getCurrentLocale() == 'th' %}เคมีภัณฑ์ก่อสร้าง{% else %}Construction Chemical Products{% endif %}</a></li>
+                            <li><a href="{{ craft.entries.id(13).first().url }}">{{ craft.entries.id(13).first().title }}</a></li>
+                        </ul>
+                    </li>
+                    <li class="{% if top == 3 %}active{% endif %} dropdown"><a href="javascript: void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% if craft.i18n.getCurrentLocale() == 'th' %}ผลงานของเรา{% else %}PORTFOLIOS{% endif %} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            {% set entries = craft.entries.section('portfolios') %}
+                            {% set relatedCats = craft.categories.group('portfoliosCategoryGroup').relatedTo(entries).translated(1) %}
+                            {% for this_category in relatedCats %}
+                            <li><a href="{{ this_category.url }}">{{ this_category.title }}</a></li>
+                            {% endfor %}
+
+                        </ul>
+                    </li>
+                    <li class='{% if top == 4 %}active{% endif %}'>
+                        <a href="{% if craft.i18n.getCurrentLocale() == 'th' %}http://investor-th.gel.co.th{% else %}http://investor.gel.co.th{% endif %}" title="{% if craft.i18n.getCurrentLocale() == 'th' %}นักลงทุนสัมพันธ์{% else %}Investors{% endif %}">
+                            {% if craft.i18n.getCurrentLocale() == 'th' %}นักลงทุนสัมพันธ์{% else %}INVESTOR{% endif %}
+                        </a>
+                    </li>
+                    <!--li class="{% if top == 4 %}active{% endif %} dropdown">
+                        <a href="javascript: void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% if craft.i18n.getCurrentLocale() == 'th' %}นักลงทุนสัมพันธ์{% else %}INVESTORS{% endif %} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu"><a href="javascript: void(0);">{% if craft.i18n.getCurrentLocale() == 'th' %}ข้อมูลบริษัท{% else %}CORPORATE INFORMATION{% endif %}</a>
+                                <ul class="dropdown-menu" style="left: 240px;position: absolute; top: 0px; z-index: 204;">
+                                    <li><a href="{{ craft.entries.id(19).first().url }}">{{ craft.entries.id(19).first().title }}</a></li>
+                                    <li><a href="{{ craft.entries.id(20).first().url }}">{{ craft.entries.id(20).first().title }}</a></li>
+                                    <li><a href="{{ craft.entries.id(21).first().url }}">{{ craft.entries.id(21).first().title }}</a></li>
+                                    <li><a href="{{ craft.entries.id(22).first().url }}">{{ craft.entries.id(22).first().title }}</a></li> 
+                                    <li><a href="{{ craft.entries.id(1181).first().url }}">{{ craft.entries.id(1181).first().title }}</a></li> 
+                                    <li><a href="{{ craft.entries.id(1182).first().url }}">{{ craft.entries.id(1182).first().title }}</a></li> 
+                                    <li><a href="{{ craft.entries.id(1183).first().url }}">{{ craft.entries.id(1183).first().title }}</a></li> 
+                                </ul>
+                            </li>
+                            {% set categories = craft.categories.group('investorCategoryGroup').level(1) %}
+                            {% nav category in categories %}
+                            {% set subCategories = craft.categories.descendantOf(category) %}
+                            <li class="dropdown-submenu" style="position: relative;"><a href="{{ category.url }}">{{ category.title }}</a>   
+                                {% if subCategories|length %}
+                                <ul class="dropdown-menu" style="left: 240px;position: absolute; top: 0px; z-index: 204;">
+                                    {% for subcategory in subCategories %}
+                                        <li><a href="{{ subcategory.url }}">{{ subcategory.title }}</a></li>
+                                    {% endfor %}
+                                </ul>  
+                                {% endif %}
+                            </li>
+                            {% endnav %}
+                        </ul>
+                    </li-->
+                    <!--li class='{% if top == 5 %}active{% endif %}'><a href="{{ siteUrl }}about-gel">{{ craft.entries.id(35).first().title }}</a></li-->
+                    <li class='{% if top == 5 %}active{% endif %}'>
+                        <a href="{% if craft.i18n.getCurrentLocale() == 'th' %}http://investor-th.gel.co.th/general_info.html{% else %}http://investor.gel.co.th/general_info.html{% endif %}" title="{% if craft.i18n.getCurrentLocale() == 'th' %}เกี่ยวกับเรา{% else %}About GEL{% endif %}">
+                            {% if craft.i18n.getCurrentLocale() == 'th' %}เกี่ยวกับเรา{% else %}ABOUT GEL{% endif %}
+                        </a>
+                    </li>
+                    <li class='{% if top == 6 %}active{% endif %}'><a href="{{ siteUrl }}contact-us">{{ craft.entries.id(36).first().title }}</a></li>
+                    <li>
+                        <ul class="lanugage-section list-unstyled list-inline">
+
+                            {# Loop through all of the site locales, except the current one #}
+                            {% set otherLocales = craft.i18n.getSiteLocaleIds() %}
+
+                            {% for locale in otherLocales %}
+                                {# Find the current entry in the other locale #}
+                                {% if category is defined %}
+                                
+                                    {% set localeEntry = craft.categories.id(category.id).locale(locale).first %}
+                                
+                                {% elseif entry is defined %}
+                                    
+                                    {% set localeEntry = craft.entries.id(entry.id).locale(locale).first %}
+                                
+                                {% endif %}
+
+                                <li class="{% if localeEntry.locale == craft.i18n.getCurrentLocale() %}active{% endif %}"><a href="{{ localeEntry.getUrl() }}"><img src="{{ craft.config.environmentVariables.baseUrl }}assets/img/{{ locale }}.png"> {{ locale|upper }}</a></li>
+  
+                            {% endfor %}
+                        </ul><!-- lanugage-section -->
+                    </li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div><!--/.container -->
+    </nav>
+</div><!-- main-navigation -->

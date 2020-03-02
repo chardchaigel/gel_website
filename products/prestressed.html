@@ -1,0 +1,54 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 2 %}
+
+{% include "_topbar" %}
+
+<section class="title-page parallax" style="background-image:url('{{ entry.prestressedTitleImage.first().getUrl()}}');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{{ entry.title }}</h1>
+        </div>
+    </div>
+</section>
+
+<section class="section -side-image right-img background parallax" style="background-image:url('{{ entry.prestressedHeroImage.first().getUrl()}}');" data-img-width="1600" data-diff="0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="intro">
+                    {{ entry.prestressedHeroContent }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section -three-colored">
+    <div class="container-fluid">
+        <div class="row check-height">
+            {% for keys, singleContent in entry.prestressedContentGroup %}
+            {% set keys = keys + 1 %}
+            <div class="col-md-4 green{{ keys }} set-height">
+                <div class="wrap">
+                    {{ singleContent.prestressedContentDescription }}
+                </div>
+            </div><!-- green1 -->
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section -definition">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 text-center">
+                {{ entry.prestressedFeatureTitle }}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include "_footer" %}
+{% include "_footer2" %}

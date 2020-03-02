@@ -1,0 +1,105 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 2 %}
+
+{% include "_topbar" %}
+<section class="title-page parallax" style="background-image:url('{{ entry.steelProductTitleImage.first().getUrl() }}');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{{ entry.title }}</h1>
+        </div>
+    </div>
+</section>
+
+<section class="section -side-image right-img background parallax" style="background-image:url('{{ entry.steelProductHeroImage.first().getUrl() }}');" data-img-width="1600" data-diff="0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="intro">
+                    {{ entry.steelProductHeroContent }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- <section class="section -side-image left-img background bg -green2" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/steel-and-concrete2.png');" data-diff="0">
+    <div class="content-a">
+        <div class="content-b">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-5 col-md-offset-6 text-left">
+                        <div class="intro -custom">
+                            {{ entry.steelProductContent1 }}
+                        </div>
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<!-- <section class="section background parallax" style="background-image:url('{{ entry.steelProductContent2.first().getUrl() }}');" data-img-width="1600" data-diff="0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-6">
+                <div class="intro box -white">
+                    {{ entry.steelProductContent3 }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<!-- <section class="section _toppd-100 _bottompd-100">
+    <div class="container">
+        <div class="home-header">
+            <h3 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} title fonts -size30">CUT & BEND</h3>
+        </div>
+        {{ entry.steelProductContent4 }}
+    </div>
+</section> -->
+
+<section class="title-page background parallax" style="background-image:url('{{ entry.steelProductReadyMixConcreteImage.first().getUrl() }}');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">READY-MIXCONCRETE</h1>
+        </div>
+    </div>
+</section>
+
+<!-- <section class="section background parallax" style="background-image:url('{{ entry.steelProductReadyMixConcreteHeroImage.first().getUrl() }}');" data-img-width="1600" data-diff="0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-6">
+                <div class="intro box -white">
+                    {{ entry.steelProductReadyMixConcreteHeroContent }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<section class="section _bottompd-100">
+    <div class="container">
+        <!-- <div class="home-header"><h2 class="title fonts -size30">{{ entry.steelProductReadyMixConcreteTitle }}</h2></div> -->
+
+        <ul class="list-unstyled brand-concrete list-inline section _topmg-60">
+            {% for keys, singleClient in entry.steelProductReadyMixConcreteClient %}
+            <li><img src="{{ singleClient.client.first().getUrl() }}" class="img-responsive"></li>
+            {% endfor %}
+        </ul>
+
+        <div class="row section _topmg-60 equal" style="justify-content: center;">
+            {% for keys, singleTrucks in entry.steelProductReadyMixConcreteTrucks %}
+            <div class="col-sm-4 col-xs-6"><img src="{{ singleTrucks.truck.first().getUrl() }}" class="img-responsive center-block"></div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+{% include "_footer" %}
+{% include "_footer2" %}

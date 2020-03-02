@@ -1,0 +1,26 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 4 %}
+
+{% include "_topbar" %}
+
+<section class="title-page parallax" style="background-image:url('{{ entry.titleImage.first().getUrl() }}');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+        <img src="{{ craft.config.environmentVariables.baseUrl }}assets/img/icon.png" class="img-responsive center-block">
+          <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{{ entry.title }}</h1>
+        </div>
+    </div>
+</section>
+
+<section class="section _toppd-100 _bottompd-100">
+    <div class="container">
+
+        {{ entry.corporativeInformationContent }}
+
+    </div>
+</section>
+
+
+{% include "_footer" %}
+{% include "_footer2" %}

@@ -1,0 +1,275 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 6 %}
+
+{% include "_topbar" %}
+
+<section class="title-page parallax" style="background-image:url('{{ entry.contactUsTitleImage.first().getUrl() }}');"
+    data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">
+                {{ entry.title }}</h1>
+        </div>
+    </div>
+</section>
+
+<!-- <section id="map-section">
+    <div class="google-map-contact-wrapper">
+        <div class="get_in_touch">
+            <h3>{{ globalField.addressGroup.first().addressTitle }}</h3>
+            <div class="get_in_touch_wrapper">
+                <ul>
+                    <li class="address">
+                        <span class="icon"><i class="icon-location"></i></span>
+                        <span class="address_wrapper">
+                            <span id="address_1" data-head="HEAD OFFICE">
+                                <i class="fa fa-map-marker"></i> <span id="addr"><p>{{ globalField.addressGroup.first().address }}</p></span>
+                            <br><br><br>
+                            <i class="fa fa-download"></i> <a id="map" class="" href="{{ globalField.addressGroup.first().addressMap.first().getUrl() }}" target="_blank">Download Map</a>
+                            </span>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+   <div id="location-map" class="map no-margin-bottom" style="height:500px;"></div>
+</section> -->
+
+<section id="contact" class="section _toppd-30 _bottompd-100">
+    <div class="container">
+        <div class="row section _bottompd-100 equal">
+            <div class="col-sm-12">
+                <h3
+                    class="fonts {% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} black section _bottommg-30">
+                    GENERAL ENGINEERING PUBLIC COMPANY LIMITED</h3>
+            </div>
+            {% for keys, address in globalField.addressGroup %}
+            <div class="col-sm-5 {% if keys % 2 == 1  %}col-sm-offset-2{% endif %}">
+                <div class="info-contact">
+                    <h3>{{ address.addressTitle }}</h3>
+
+                    <div style="min-height: 55px;">{{ address.address }}</div>
+                    {% if address.addressMap|length %}
+                    <br /><br />
+                    <div class="row" style="align-self: flex-end;">
+                        <a href="{{ address.addressMap.first().getUrl() }}" class="btn btn-green col-sm-5"><i
+                                class="fa fa-download"></i>DOWNLOAD MAP</a>
+                        <a href="{{ address.googleMapLink }}" target="_blank"
+                            class="btn btn-green col-sm-5 col-sm-offset-2"><i class="fa fa-map-marker"></i>GOOGLE MAP</a>
+                    </div>
+                    {% endif %}
+
+                </div><!-- info-contact -->
+            </div>
+            {% endfor %}
+        </div>
+
+
+        <div class="row section _bottompd-100">
+            <div class="col-sm-12 section _bottompd-50">
+                <div class="info-contact">
+                    <h3>For more infomation,send us a message</h3>
+                    <p>We will try to answer your question within 24 hours.</p>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <img src="{{ craft.config.environmentVariables.baseUrl }}assets/img/contact-1.jpg"
+                    class="img-responsive" alt="">
+            </div>
+
+            {% macro errorList(errors) %}
+            {% if errors %}
+            {% for error in errors %}
+            <small class="error"> {{error}}</small>
+            {% endfor %}
+            {% endif %}
+            {% endmacro %}
+
+            {% from _self import errorList %}
+
+            <div class="col-sm-8">
+                <form id="form-contact" method="post" action="" accept-charset="UTF-8">
+                    {{ getCsrfInput() }}
+                    <input type="hidden" name="action" value="contactForm/sendMessage">
+
+                    <div class="row">
+                        <div
+                            class="form-group col-sm-6 {{ message is defined and message and message.getErrors('fromName') ? 'has-error' }}">
+                            <input type="text" name="fromName" id="fromName"
+                                value="{% if message is defined %}{{ message.fromName}}{% endif %}"
+                                placeholder="Your name" size="22" tabindex="1" aria-required="true"
+                                class="form-control requiredField name input-name label-better ">
+
+                            {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
+                        </div>
+                        <div
+                            class="form-group col-sm-6 {{ message is defined and message and message.getErrors('fromEmail') ? 'has-error' }}">
+                            <input type="text" name="fromEmail" id="fromEmail"
+                                value="{% if message is defined %}{{ message.fromEmail}}{% endif %}"
+                                placeholder="Your e-mail" size="22" tabindex="3" aria-required="true"
+                                class="form-control requiredField email input-email label-better ">
+                            {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div
+                            class="form-group col-sm-12 {{ message is defined and message and message.getErrors('subject') ? 'has-error' }}">
+                            <input type="text" name="subject" id="subject"
+                                value="{% if message is defined %}{{ message.subject }}{% endif %}"
+                                placeholder="Your subject" size="22" tabindex="2" aria-required="true"
+                                class="form-control requiredField subject input-phone label-better ">
+                            {{ message is defined and message ? errorList(message.getErrors('subject')) }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div
+                            class="form-group col-sm-12 {{ message is defined and message and message.getErrors('message') ? 'has-error' }}">
+                            <textarea name="message" id="message" rows="5"
+                                class="form-control requiredField label-better"
+                                placeholder="Message">{% if message is defined %}{{ message.message}}{% endif %}</textarea>
+                            {{ message is defined and message ? errorList(message.getErrors('message')) }}
+                        </div>
+                    </div>
+
+                    {{craft.recaptcha.render()}}
+
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <button type="submit" class="btn btn-green">Send Message</button></div>
+                    </div>
+                    <input id="pooh" name="pooh" type="text" style="display: none;">
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 section _bottompd-50">
+                <div class="info-contact">
+                    <h3>CONTACT SALES</h3>
+                    <p>Office Hour : Monday-Friday {{ entry.officeHoursOpen| date('H:i A') }} -
+                        {{ entry.officeHoursClose| date('H:i A') }}</p>
+                </div>
+            </div>
+            {% for keys, singleContact in entry.contactSales %}
+
+            <div class="col-md-4 col-sm-6">
+                <div class="panel gray">
+                    <div class="panel-body">
+                        <h5 class="fonts montserrat-light">{{ singleContact.salesTitle }}</h5>
+                        E-mail: <a href="mailto:{{ singleContact.email }}">{{ singleContact.email }}</a><br>
+                        Tel. <a
+                            href="tel:{{ singleContact.salestel }};ext={{ singleContact.extension }}">{{ singleContact.salestel }}
+                            Ext. {{ singleContact.extension }}</a>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% include "_footer" %}
+<script>
+    {% set m = craft.session.getFlash('success') %}
+    {% if m is defined and m == 1 %}
+    alert('Congratulation, Your message has been sent!!');
+    {% elseif m is defined and m == 2 %}
+    alert('There was a problem with your submission, please check the form and try again!');
+    {% elseif m is defined and m == 3 %}
+    alert('Thank you for subscribe with us :)');
+    {% endif %}
+    $(function () {
+        /* ------------------------------------------------
+                Init Google Map
+        --------------------------------------------------- */
+        // function defaultMap() {
+        //     if(document.getElementById('location-map')) {
+        //         var image = '{{ craft.config.environmentVariables.baseUrl }}assets/img/logo.jpg';
+
+        //         var mapOptions = {
+
+        //             /*---- Map Location (Latitude,Longitude) ----*/
+
+        //             center: new google.maps.LatLng( {{ globalField.addressGroup.first().addressLat }},  {{ globalField.addressGroup.first().addressLng }}),
+        //             zoom: 15,
+        //             zoomControl: true,
+        //             zoomControlOptions: {
+        //                     style:google.maps.ZoomControlStyle.SMALL
+        //             },
+        //             panControl:false,
+        //             mapTypeControl:false,
+        //             scaleControl:false,  
+        //             streetViewControl:false,
+        //             overviewMapControl:false,
+        //             rotateControl:false,
+        //             scrollwheel: true,
+        //             mapTypeId: google.maps.MapTypeId.ROADMAP,
+
+        //             /*---- Map Style ----*/
+
+        //         };
+
+        //         /*---- Plotting Map ----*/
+
+        //         var map = new google.maps.Map(document.getElementById('location-map'), mapOptions);
+
+        //         var bounds = new google.maps.LatLngBounds ();
+
+        //         /*---- Setting Popup ----*/
+        //         {% for keys, singleAddress in globalField.addressGroup %}
+
+        //         {% endfor %}
+
+        //         /*---- Setting Marker ----*/ 
+        //         {% for keys, singleAddress in globalField.addressGroup %}
+        //             var mapMarker{{ keys }} = new google.maps.Marker({ 
+        //                 position: new google.maps.LatLng( {{ singleAddress.addressLat }},  {{ singleAddress.addressLng }}),
+        //                 map: map,
+        //                 icon: image
+        //             });
+        //             bounds.extend(new google.maps.LatLng( {{ singleAddress.addressLat }},  {{ singleAddress.addressLng }} ));
+
+        //             mapMarker{{ keys }}.addListener('click', function() {
+        //                 $('#map-section h3').text( '{{ singleAddress.addressTitle }}' );
+        //                 $('#map-section #addr').html( '{{ singleAddress.address }}' );
+        //                 $('#map-section #map').attr( 'href' , '{{ singleAddress.addressMap.first().getUrl() }}' );
+        //             });
+
+        //         {% endfor %}
+
+        //         map.fitBounds(bounds);
+        //     }
+        // }
+
+        // defaultMap();
+
+        $('#form-contact').validate({       // initialize plugin on each form
+            // global options for plugin
+            rules: {
+                'fromName': {
+                    required: true
+                },
+                'fromEmail': {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                'fromEmail': "Please enter a valid email address",
+                'fromName': "Please enter a name"
+            },
+            errorPlacement: function (error, element) {
+                $(element).closest('.form-group').addClass('has-error');
+                error.insertAfter($(element));
+
+            }
+        });
+    });    
+</script>
+{% include "_footer2" %}

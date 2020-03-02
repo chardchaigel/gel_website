@@ -1,0 +1,29 @@
+    
+    <link rel="stylesheet" href="{{ craft.config.environmentVariables.baseUrl }}assets/css/bootstrap.min.css"> 
+    <link rel="stylesheet" type="text/less" href="{{ craft.config.environmentVariables.baseUrl }}assets/css/styles.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+    <script src="{{ craft.config.environmentVariables.baseUrl }}assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    
+    <!--style>
+    #main-nav nav.affix {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index:10;
+    }
+	.black-ribbon {
+		position: fixed;
+		z-index: 999;
+		right: 0;
+		top: 100px;
+	}
+	
+    </style-->
+</head>
+
+<body id="{{ craft.i18n.getCurrentLocale() }}" class="{% if url(craft.request.path) == 'http://www.gel.co.th/' %}home{% endif %}">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->   
+		<!--div class="black-ribbon"><img src="{{ craft.config.environmentVariables.baseUrl }}assets/img/ribbon.png" alt=""></div-->	

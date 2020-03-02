@@ -1,0 +1,69 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 4 %}
+
+{% include "investors/_topbar-new" %}
+<!--
+<section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head7.jpg');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{% if craft.i18n.getCurrentLocale() == 'th' %}ผลงานของเรา{% else %}PORTFOLIOS{% endif %}</h1>
+            <div class="inside">{{ category.title }}</div>
+        </div>
+    </div>
+</section>
+-->
+<section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head9.png');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b" style="text-transform: uppercase;">
+            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{{ menuGlobal.shareholderInfoMenu }}</h1>
+        </div>
+    </div>
+</section>
+
+<section class="section _toppd-60 _bottompd-100">
+    <div class="sectional-header">
+        <h3 class="heading">{{ craft.entries.section('dividendPolicyPayment').first().title }}</h3>  
+    </div>
+    <div class="container" align="center" style="width:70%">
+        <p style="text-align:justify;">In the ordinary shareholders’ meeting No. 1/2008, dated 24 April 
+            2008, the meeting had a resolution unanimously to the Company to change 
+            the policy of dividend payment to “not exceeding 60% of net profit after
+             income tax and to reserve legally and the Company shall not have 
+            deficit; anyhow, in order to comply to the cash flow and business 
+            expansion plan of the company in the future” while dividend payment 
+            shall be paid as per amount of shares, each share equally.
+            </p>
+            <p style="text-align:justify;">The Company still has its deficit, causing incapability to pay the 
+            dividend to the shareholders according to the law, while those 
+            shareholders had risk of non-payment of dividend as per the dividend 
+            policy determined since the company has net deficit.
+            </p>
+            <p style="text-align:justify;">The Company has a policy of granting shareholders to vote for one 
+            share, one vote. (The company issued a first category is no ordinary 
+            shares of preferred stock.)
+            </p>
+            <p style="text-align:justify;">The right to receive a share in profits / dividends. Is entitled to 
+            perform equally. The Company Also gave shareholders the right to appoint
+             a committee to investigate., The right to appoint the Board of 
+            Directors. To certify the performance of the company every year. The 
+            right to approve the amendment and books BRIC criteria Junction. And the
+             right to approve the capital reduction or increase capital.
+            </p>
+            <p style="text-align:justify;">The Company recognizes the rights of shareholders. Supervised by 
+            shareholders over the basic rights under the law. Including providing 
+            information that is currently available through the Company’s website 
+            The availability of the Management Discussion and Analysis (MD & A) 
+            for an explanation of operating results for any quarter. And published 
+            on the company website.
+            </p>
+            <p><br>
+            </p>
+        <img src="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/dividend.png">
+    </div>
+</section>
+
+
+
+{% include "_footer" %}
+{% include "_footer2" %}
