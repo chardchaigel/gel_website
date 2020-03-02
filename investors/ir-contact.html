@@ -77,6 +77,8 @@
                     else {
                         // console.log('Success');
                         alert('Email has been sent to our staff.');
+                        clearErrors();
+                        clearFields();
                     }
                 } catch (e) {
                     console.error(e.message);
