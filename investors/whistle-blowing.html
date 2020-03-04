@@ -94,6 +94,8 @@
                     else {
                         // console.log('Success');
                         alert('Email has been sent to our staff');
+                        clearFields();
+                        clearErrors();
                     }
                 }
                 catch (e) {
@@ -196,7 +198,7 @@
                         <textarea class="form-control" name="information" id="information" rows="4"></textarea>
                         <div id="information-error" style="color:red"></div>
                     </div>
-                    <button type="button" name="submit-btn" id="submit-btn" class="btn btn-primary">Submit</button>
+                    <button type="button" name="submit-btn" id="submit-btn" class="btn btn-primary" style="background-color:#1f5026;">Submit</button>
                 </form>
             </div>
         </div>

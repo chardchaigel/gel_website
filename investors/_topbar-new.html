@@ -101,7 +101,8 @@
 
                             <li class="dropdown-submenu" style="text-transform: uppercase;"><a href="javascript: void(0);">{% if craft.i18n.getCurrentLocale() == 'th' %}ขอข้อมูล{% else %}{{ menuGlobal.infoRequestMenu }}{% endif %}</a>
                                 <ul class="dropdown-menu" style="left: 240px;position: absolute; top: 260px; z-index: 204;">
-                                    <li><a href="{{ craft.entries.section('ircontact').first().url }}">{{ craft.entries.section('ircontact').first().title }}</a></li>
+                                    <li><a href="{{ craft.entries.section('ircontact').first().url }}">{{ craft.entries.section('ircontact').first().title }}</a></li>                                    
+                                    <li><a href="{{ craft.entries.section('emailAlert').first().url }}">{{ craft.entries.section('emailAlert').first().title }}</a></li>
                                 </ul>
                             </li>
 
