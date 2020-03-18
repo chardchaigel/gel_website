@@ -38,16 +38,10 @@
                         </ul>
                     </li>
                     <li class='{% if top == 4 %}active{% endif %}'>
-                        <a href="{% if craft.i18n.getCurrentLocale() == 'th' %} {{ craft.entries.section('investorPage').first().url }} {% else %} {{ craft.entries.section('investorPage').first().url }} {% endif %}" title="{% if craft.i18n.getCurrentLocale() == 'th' %}นักลงทุนสัมพันธ์{% else %}Investors{% endif %}">
-                            {% if craft.i18n.getCurrentLocale() == 'th' %}นักลงทุนสัมพันธ์{% else %}INVESTOR{% endif %}
-                        </a>
-                        <!--
                         <a href="{% if craft.i18n.getCurrentLocale() == 'th' %}http://investor-th.gel.co.th{% else %}http://investor.gel.co.th{% endif %}" title="{% if craft.i18n.getCurrentLocale() == 'th' %}นักลงทุนสัมพันธ์{% else %}Investors{% endif %}">
                             {% if craft.i18n.getCurrentLocale() == 'th' %}นักลงทุนสัมพันธ์{% else %}INVESTOR{% endif %}
                         </a>
-                        -->
                     </li>
-
                     <!--li class="{% if top == 4 %}active{% endif %} dropdown">
                         <a href="javascript: void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% if craft.i18n.getCurrentLocale() == 'th' %}นักลงทุนสัมพันธ์{% else %}INVESTORS{% endif %} <span class="caret"></span></a>
                         <ul class="dropdown-menu">

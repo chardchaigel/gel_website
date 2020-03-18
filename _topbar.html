@@ -37,14 +37,76 @@
 
                         </ul>
                     </li>
+                    <!--
                     <li class='{% if top == 4 %}active{% endif %}'>
+                        <a href="{% if craft.i18n.getCurrentLocale() == 'th' %} {{ craft.entries.section('investorPage').first().url }} {% else %} {{ craft.entries.section('investorPage').first().url }} {% endif %}" title="{% if craft.i18n.getCurrentLocale() == 'th' %}นักลงทุนสัมพันธ์{% else %}Investors{% endif %}">
+                            {% if craft.i18n.getCurrentLocale() == 'th' %}นักลงทุนสัมพันธ์{% else %}INVESTOR{% endif %}
+                        </a>
+                    -->
+                        <!--
                         <a href="{% if craft.i18n.getCurrentLocale() == 'th' %}http://investor-th.gel.co.th{% else %}http://investor.gel.co.th{% endif %}" title="{% if craft.i18n.getCurrentLocale() == 'th' %}นักลงทุนสัมพันธ์{% else %}Investors{% endif %}">
                             {% if craft.i18n.getCurrentLocale() == 'th' %}นักลงทุนสัมพันธ์{% else %}INVESTOR{% endif %}
                         </a>
+                        -->
+                    <!--
                     </li>
-                    <!--li class="{% if top == 4 %}active{% endif %} dropdown">
+                    -->
+
+                    <li class="{% if top == 4 %}active{% endif %} dropdown">
                         <a href="javascript: void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% if craft.i18n.getCurrentLocale() == 'th' %}นักลงทุนสัมพันธ์{% else %}INVESTORS{% endif %} <span class="caret"></span></a>
+                        
                         <ul class="dropdown-menu">
+                            <li class="dropdown-submenu" style="text-transform: uppercase;"><a href="javascript: void(0);">{% if craft.i18n.getCurrentLocale() == 'th' %}ข้อมูลการเงินบริษัท{% else %}{{ menuGlobal.financialInfoMenu }}{% endif %}</a>
+                                <ul class="dropdown-menu" style="left: 240px;position: absolute; top: 0px; z-index: 204;">
+                                    <li><a href="{{ craft.entries.section('financialHighlights').first().url }}">{{ craft.entries.section('financialHighlights').first().title }}</a></li>
+                                    <li><a href="{{ craft.entries.section('financialStatementsPage').first().url }}">{{ craft.entries.section('financialStatementsPage').first().title }}</a></li>
+                                    <li><a href="{{ craft.entries.section('managementDiscussionAnalysisPage').first().url }}">{{ craft.entries.section('managementDiscussionAnalysisPage').first().title }}</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown-submenu" style="text-transform: uppercase;"><a href="javascript: void(0);">{% if craft.i18n.getCurrentLocale() == 'th' %}ข้อมูลผู้ถือหุ้น{% else %}{{ menuGlobal.shareholderInfoMenu }}{% endif %}</a>
+                                <ul class="dropdown-menu" style="left: 240px;position: absolute; top: 40px; z-index: 204;">
+                                    <li><a href="{{ craft.entries.section('majorShareholders').first().url }}">{{ craft.entries.section('majorShareholders').first().title }}</a></li>
+                                    <li><a href="{{ craft.entries.section('irCalendar').first().url }}">{{ craft.entries.section('irCalendar').first().title }}</a></li>
+                                    <li><a href="{{ craft.entries.section('dividendPolicyPayment').first().url }}">{{ craft.entries.section('dividendPolicyPayment').first().title }}</a></li>
+                                    <li><a href="{{ craft.entries.section('shareholderMeetingsPage').first().url }}">{{ craft.entries.section('shareholderMeetingsPage').first().title }}</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown-submenu" style="text-transform: uppercase;"><a href="javascript: void(0);">{% if craft.i18n.getCurrentLocale() == 'th' %}การกำกับดูแลกิจการ{% else %}{{ menuGlobal.corporateGovernanceMenu }}{% endif %}</a>
+                                <ul class="dropdown-menu" style="left: 240px;position: absolute; top: 80px; z-index: 204;">
+                                    <li><a href="{{ craft.entries.section('cgPolicy').first().url }}">{{ craft.entries.section('cgPolicy').first().title }}</a></li>
+                                    <li><a href="{{ craft.entries.section('cgScore').first().url }}">{{ craft.entries.section('cgScore').first().title }}</a></li>
+                                    <li><a href="{{ craft.entries.section('whistleBlowing').first().url }}">{{ craft.entries.section('whistleBlowing').first().title }}</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="{{ craft.entries.section('corporateSocialResponsibility').first().url }}">{{ craft.entries.section('corporateSocialResponsibility').first().title }}</a></li>
+
+                            <li class="dropdown-submenu" style="text-transform: uppercase;"><a href="javascript: void(0);">{% if craft.i18n.getCurrentLocale() == 'th' %}ห้องข่าว{% else %}{{ menuGlobal.newsRoomMenu }}{% endif %}</a>
+                                <ul class="dropdown-menu" style="left: 240px;position: absolute; top: 180px; z-index: 204;">
+                                    <li><a href="{{ craft.entries.section('setAnnouncementsPage').first().url }}">{{ craft.entries.section('setAnnouncementsPage').first().title }}</a></li>
+                                    <li><a href="{{ craft.entries.section('newsClippingsPage').first().url }}">{{ craft.entries.section('newsClippingsPage').first().title }}</a></li>
+                                    <li><a href="{{ craft.entries.section('vdoClipsPage').first().url }}">{{ craft.entries.section('vdoClipsPage').first().title }}</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown-submenu" style="text-transform: uppercase;"><a href="javascript: void(0);">{% if craft.i18n.getCurrentLocale() == 'th' %}สิ่งตีพิมพ์{% else %}{{ menuGlobal.publicationsMenu }}{% endif %}</a>
+                                <ul class="dropdown-menu" style="left: 240px;position: absolute; top: 220px; z-index: 204;">
+                                    <li><a href="{{ craft.entries.section('annualReportsPage').first().url }}">{{ craft.entries.section('annualReportsPage').first().title }}</a></li>
+                                    <li><a href="{{ craft.entries.section('form561Page').first().url }}">{{ craft.entries.section('form561Page').first().title }}</a></li>
+                                    <li><a href="{{ craft.entries.section('webcastsPresentationsPage').first().url }}">{{ craft.entries.section('webcastsPresentationsPage').first().title }}</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown-submenu" style="text-transform: uppercase;"><a href="javascript: void(0);">{% if craft.i18n.getCurrentLocale() == 'th' %}ขอข้อมูล{% else %}{{ menuGlobal.infoRequestMenu }}{% endif %}</a>
+                                <ul class="dropdown-menu" style="left: 240px;position: absolute; top: 260px; z-index: 204;">
+                                    <li><a href="{{ craft.entries.section('ircontact').first().url }}">{{ craft.entries.section('ircontact').first().title }}</a></li>                                    
+                                    <li><a href="{{ craft.entries.section('emailAlert').first().url }}">{{ craft.entries.section('emailAlert').first().title }}</a></li>
+                                </ul>
+                            </li>
+
+                            <!--
                             <li class="dropdown-submenu"><a href="javascript: void(0);">{% if craft.i18n.getCurrentLocale() == 'th' %}ข้อมูลบริษัท{% else %}CORPORATE INFORMATION{% endif %}</a>
                                 <ul class="dropdown-menu" style="left: 240px;position: absolute; top: 0px; z-index: 204;">
                                     <li><a href="{{ craft.entries.id(19).first().url }}">{{ craft.entries.id(19).first().title }}</a></li>
@@ -69,8 +131,13 @@
                                 {% endif %}
                             </li>
                             {% endnav %}
+
+                            -->
                         </ul>
-                    </li-->
+                    </li>
+
+
+
                     <!--li class='{% if top == 5 %}active{% endif %}'><a href="{{ siteUrl }}about-gel">{{ craft.entries.id(35).first().title }}</a></li-->
                     <li class='{% if top == 5 %}active{% endif %}'>
                         <a href="{% if craft.i18n.getCurrentLocale() == 'th' %}http://investor-th.gel.co.th/general_info.html{% else %}http://investor.gel.co.th/general_info.html{% endif %}" title="{% if craft.i18n.getCurrentLocale() == 'th' %}เกี่ยวกับเรา{% else %}About GEL{% endif %}">
