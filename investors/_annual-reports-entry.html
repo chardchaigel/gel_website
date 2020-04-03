@@ -6,7 +6,7 @@
 <section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head9.png');" data-img-width="1600" data-diff="100">
     <div class="content-a">
         <div class="content-b" style="text-transform: uppercase;">
-            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{{ menuGlobal.publicationsMenu }}</h1>
+            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{% if craft.i18n.getCurrentLocale() == 'th' %}สิ่งตีพิมพ์{% else %}{{ menuGlobal.publicationsMenu }}{% endif %}</h1>
         </div>
     </div>
 </section>

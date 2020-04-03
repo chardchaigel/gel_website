@@ -6,11 +6,7 @@
 <section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head9.png');" data-img-width="1600" data-diff="100">
     <div class="content-a">
         <div class="content-b" style="text-transform: uppercase;">
-            {% if craft.i18n.getCurrentLocale() == 'th' %}
-                <h1 class="rsubold fonts">{{ menuGlobal.newsRoomMenuThai }}</h1>
-            {% else %}
-                <h1 class="montserrat-bold fonts">{{ menuGlobal.newsRoomMenu }}</h1>
-            {% endif %}
+            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{% if craft.i18n.getCurrentLocale() == 'th' %}การประชุมผู้ถือหุ้น{% else %}{{ menuGlobal.shareholderInfoMenu }}{% endif %}</h1>
         </div>
     </div>
 </section>
@@ -25,13 +21,17 @@
                     <h1 class="heading fonts  -rsublod">{{ entry.title }}</h1>
                     <p class="meta"><i class="fa fa-user"></i> {{ entry.author.fullName }}  <i class="fa fa-clock-o"></i>{{ entry.postDate.format('F d, Y') }}</p>
                     <div class="dec" id="entry-content" style="padding-top: 15px;">
-                        {{ entry.vdoClipsEntryContent }}
+                        {% if craft.i18n.getCurrentLocale() == 'th' %}
+                            {{ entry.shareHolderMeetingEntryContentThai }}
+                        {% else %}
+                            {{ entry.shareHolderMeetingEntryContent }}
+                        {% endif %}
                     </div>
                 </div>
 
             </div>
 
-            {% include "investors/_vdo-clips-sidebar" %}
+            {% include "investors/_shareholder-meeting-sidebar" %}
 
         </div>
 

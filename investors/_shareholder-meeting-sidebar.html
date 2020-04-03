@@ -5,7 +5,13 @@
     {% set open = 0 %}
     <div class="sidebar set-height">
         <div class="side-widget">
-            <h4>{{ craft.entries.section('shareholderMeetingsPage').first().title }}</h4>
+            <h4>
+                {% if craft.i18n.getCurrentLocale() == 'th' %}
+                    การประชุมผู้ถือหุ้น
+                {% else %}
+                    {{ craft.entries.section('shareholderMeetingsPage').first().title }}                
+                {% endif %}
+            </h4>
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 {% set categories = craft.categories.group('shareholderMeetingCategoryGroup').level(1) %}
                 {% nav keys, category in categories %}

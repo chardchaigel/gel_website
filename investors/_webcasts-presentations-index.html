@@ -7,7 +7,11 @@
 <section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/work-banner1.jpg');" data-img-width="1600" data-diff="100">
     <div class="content-a">
         <div class="content-b" style="text-transform: uppercase;">
-            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{{ menuGlobal.publicationsMenu }}</h1>
+            {% if craft.i18n.getCurrentLocale() == 'th' %}
+                <h1 class="rsubold fonts">{{ menuGlobal.publicationsMenuThai }}</h1>
+            {% else %}
+                <h1 class="montserrat-bold fonts">{{ menuGlobal.publicationsMenu }}</h1>
+            {% endif %}
         </div>
     </div>
 </section>
@@ -17,13 +21,23 @@
 
         <div class="row check-height">
             <div class="col-sm-8 set-height">
-                <h3 class="fonts {% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} black section _bottommg-30">
-                    {% if category is defined %}
-                        {{ category.title }}
-                    {% else %}
-                        Recent
-                    {% endif %}
-                </h3>
+                {% if craft.i18n.getCurrentLocale() == 'th' %}
+                    <h3 class="fonts rsubold black section _bottommg-30">
+                        {% if category is defined %}
+                            {{ category.title }}
+                        {% else %}
+                            ล่าสุด
+                        {% endif %}
+                    </h3>
+                {% else %}
+                    <h3 class="fonts montserrat-bold black section _bottommg-30">
+                        {% if category is defined %}
+                            {{ category.title }}
+                        {% else %}
+                            Recent
+                        {% endif %}
+                    </h3>
+                {% endif %}
                 
                 {% if category is defined %}
                 {% set Categories = craft.categories.group('webcastsPresentationsCategoryGroup').slug(category.slug) %}
@@ -71,7 +85,10 @@
                                 {{ entry.title }}</a>
                             </h3>                 
                             <div class="post-info"><span class="date"><i class="icon-calendar"></i> <span class="post-date updated">{{ entry.postDate.format('F d, Y') }}</span><span class="date"></span></span></div>
-                            <div class="post-footer"><a class="pull-right link" href="{% if entry.type == 'link' %}{{ entry.webcastsPresentationsEntryDocument.first().getUrl() }}{% else %}{{ entry.url }}{% endif %}"><span>Read more</span> <i class="fa fa-angle-double-right"></i></a></div>
+                            <div class="post-footer"><a class="pull-right link" href="{% if entry.type == 'link' %}{{ entry.webcastsPresentationsEntryDocument.first().getUrl() }}{% else %}{{ entry.url }}{% endif %}">
+                                <span>{% if craft.i18n.getCurrentLocale() == 'th' %}อ่านต่อ{% else %}Read more{% endif %}</span> 
+                                <i class="fa fa-angle-double-right"></i></a>
+                            </div>
                         </div>
                     </div>
                 {% endfor %}

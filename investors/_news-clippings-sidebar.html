@@ -4,8 +4,12 @@
     {% endif %}
     {% set open = 0 %}
     <div class="sidebar set-height">
-        <div class="side-widget">                        
-            <h4>{{ craft.entries.section('newsClippingsPage').first().title }}</h4>
+        <div class="side-widget">        
+            {% if craft.i18n.getCurrentLocale() == 'th' %}                
+                <h4>ข่าวทั่วไป</h4>
+            {% else %}
+                <h4>{{ craft.entries.section('newsClippingsPage').first().title }}</h4>
+            {% endif %}
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 {% set categories = craft.categories.group('newsClippingsCategoryGroup').level(1) %}
                 {% nav keys, category in categories %}

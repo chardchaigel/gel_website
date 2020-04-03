@@ -5,7 +5,11 @@
     {% set open = 0 %}
     <div class="sidebar set-height">
         <div class="side-widget">
-            <h4>{{ craft.entries.section('managementDiscussionAnalysisPage').first().title }}</h4>
+            {% if craft.i18n.getCurrentLocale() == 'th' %}
+                <h4>คำอธิบายและวิเคราะห์ฝ่ายจัดการ</h4>
+            {% else %}
+                <h4>{{ craft.entries.section('managementDiscussionAnalysisPage').first().title }}</h4>
+            {% endif %}
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 {% set categories = craft.categories.group('managementDiscussionAnalysisCategoryGroup').level(1) %}
                 {% nav keys, category in categories %}

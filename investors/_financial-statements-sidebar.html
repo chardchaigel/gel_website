@@ -5,7 +5,11 @@
     {% set open = 0 %}
     <div class="sidebar set-height">
         <div class="side-widget">
-            <h4>Financial Statements</h4>
+            {% if craft.i18n.getCurrentLocale() == 'th' %}
+                <h4>งบการเงินบริษัท</h4>
+            {% else %}
+                {{ craft.entries.section('financialStatementsPage').first().title }}
+            {% endif %}
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 {% set categories = craft.categories.group('financialStatementsCategoryGroup').level(1) %}
                 {% nav keys, category in categories %}

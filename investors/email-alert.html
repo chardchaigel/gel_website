@@ -9,7 +9,12 @@
 <section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head9.png');" data-img-width="1600" data-diff="100">
     <div class="content-a">
         <div class="content-b" style="text-transform: uppercase;">
-            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{{ menuGlobal.infoRequestMenu }}</h1>
+            <!-- <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{{ menuGlobal.infoRequestMenu }}</h1> -->
+            {% if craft.i18n.getCurrentLocale() == 'th' %}
+                <h1 class="rsubold fonts">สมัครรับข่าวสาร</h1>
+            {% else %}
+                <h1 class="montserrat-bold fonts">{{ craft.entries.section('emailAlert').first().title }}</h1>
+            {% endif %}
         </div>
     </div>
 </section>
@@ -32,7 +37,15 @@
                 <div id="mc_embed_signup">
                     <form action="https://gel.us19.list-manage.com/subscribe/post?u=59c16bfe6ce1a04ad14dec25e&amp;id=479c56eb81" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
                         <div id="mc_embed_signup_scroll">
-                            <h2><span styule="color:#6e7d69;">Welcome to <b>General Engineering Public Company Limited</b> email alert service. Our systems will automatically send you Company Announcements and SET Announcements.</span></h2>
+                            {% if craft.i18n.getCurrentLocale() == 'th' %}
+                                <h2><p><span style="color:#6e7d69;">ขอต้อนรับเข้าสู่ระบบสมัครรับข่าวสารของ <b> บริษัท เจนเนอรัล เอนจิเนียริ่ง จำกัด (มหาชน)</b> </p>
+                                    <p>เมื่อสมัครรับข่าวสารกับเราแล้ว ระบบของเราจะส่งอีเมล์ถึงคุณโดยอัตโนมัติ เมื่อมีประกาศจากบริษัทหรือข่าวแจ้งตลาดหลักทรัพย์</p>
+                                </span></h2>
+                            {% else %}
+                                <h2><span style="color:#6e7d69;"><p>Welcome to <b>General Engineering Public Company Limited</b> email alert service. </p>
+                                    <p>Our systems will automatically send you Company Announcements and SET Announcements.</p>
+                                </span></h2>
+                            {% endif %}
                             <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
                             <div class="mc-field-group">
                                 <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span></label>

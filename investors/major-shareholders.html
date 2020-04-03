@@ -17,14 +17,22 @@
 <section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head9.png');" data-img-width="1600" data-diff="100">
     <div class="content-a">
         <div class="content-b" style="text-transform: uppercase;">
-            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{{ menuGlobal.shareholderInfoMenu }}</h1>
+            {% if craft.i18n.getCurrentLocale() == 'th' %}
+                <h1 class="rsubold fonts">{{ menuGlobal.shareholderInfoMenuThai }}</h1>
+            {% else %}
+                <h1 class="montserrat-bold fonts">{{ menuGlobal.shareholderInfoMenu }}</h1>
+            {% endif %}
         </div>
     </div>
 </section>
 
 <section class="section _toppd-60 _bottompd-100">    
     <div class="sectional-header">
-        <h3 class="heading">{{ craft.entries.section('majorShareholders').first().title }}</h3>
+        {% if craft.i18n.getCurrentLocale() == 'th' %}
+            <h3 class="heading">ผู้ถือหุ้นหลัก</h3>
+        {% else %}
+            <h3 class="heading">{{ craft.entries.section('majorShareholders').first().title }}</h3>
+        {% endif %}
     </div>
     <div class="container" align="center">
         <img src="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/major-shareholders.png">

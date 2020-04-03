@@ -9,7 +9,11 @@
 <section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head9.png');" data-img-width="1600" data-diff="100">
     <div class="content-a">
         <div class="content-b" style="text-transform: uppercase;">
-            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{{ menuGlobal.infoRequestMenu }}</h1>
+            {% if craft.i18n.getCurrentLocale() == 'th' %}
+                <h1 class="rsubold fonts">ติดต่อ IR</h1>
+            {% else %}
+                <h1 class="montserrat-bold fonts">{{ craft.entries.section('irContact').first().title }}</h1>
+            {% endif %}
         </div>
     </div>
 </section>
@@ -180,45 +184,55 @@
         </div>
         <div class="row">
             <div class="col-md-12" style="padding-top:10px;">
-            44/2 Moo2 Tivanont Road, Bangkadi, Muang Pathumthani, Pathumthani, 12000, Thailand
+            {% if craft.i18n.getCurrentLocale() == 'th' %}
+                44/2 หมู่ 2 ถนนติวานนท์ ต.บางกะดี อ.เมือง จ.ปทุมธานี 12000
+            {% else %}
+                44/2 Moo2 Tivanont Road, Bangkadi, Muang Pathumthani, Pathumthani, 12000, Thailand
+            {% endif %}
             <hr>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4">
-                <p><span style="color:grey; font-size:15px;">EMAIL GEL</span></p>
+                <p><span style="color:grey; font-size:15px;">{% if craft.i18n.getCurrentLocale() == 'th' %}อีเมล์{% else %}EMAIL GEL{% endif %}</span></p>
                 <p><span style="color:#1d5124; font-size:30px; font-family: montserratbold;"><b>IR@GEL.CO.TH</span></b></p>
             </div>
             <div class="col-md-4">
-                <p><span style="color:grey; font-size:15px;">CALL GEL</span></p>
+                <p><span style="color:grey; font-size:15px;">{% if craft.i18n.getCurrentLocale() == 'th' %}โทร{% else %}CALL GEL{% endif %}</span></p>
                 <p><span style="color:#1d5124; font-size:32px; font-family: montserratbold;">+6625011055</span></p>
             </div>
             <div class="col-md-4">
-                <p><span style="color:grey; font-size:15px;">FAX GEL</span></p>
+                <p><span style="color:grey; font-size:15px;">{% if craft.i18n.getCurrentLocale() == 'th' %}แฟ๊กซ์{% else %}FAX GEL{% endif %}</span></p>
                 <p><span style="color:#1d5124; font-size:32px; font-family: montserratbold;">+6625012134</span></p>
             </div>
         </div>
         <hr>
         <div class="row" style="padding-top:10px;">
             <div class="col-md-12">
-                <p>Please leave your information below should you have any inquiries</p>
+                <p>
+                    {% if craft.i18n.getCurrentLocale() == 'th' %}
+                        กรุณาระบุข้อมูลที่ต้องการติดต่อ
+                    {% else %}
+                        Please leave your information below should you have any inquiries
+                    {% endif %}
+                </p>
                 <form class="needs-validation" action="#">                    
                     <div class="form-group">
-                        <label for="email">Email <span class="text-danger">*</span></label>
+                        <label for="email">Email (อีเมล์) <span class="text-danger">*</span></label>
                         <input class="form-control" type="email" name="email" id="email" />        
                         <div id="email-error" style="color:red"></div>
                     </div>
                     <div class="form-group">
-                        <label for="name">Your Name <span class="text-danger">*</span></label>
+                        <label for="name">Your Name (ชื่อ) <span class="text-danger">*</span></label>
                         <input class="form-control" type="text" name="name" id="name" />
                         <div id="name-error" style="color:red"></div>
                     </div>
                     <div class="form-group">
-                        <label for="tel">Tel</label>
+                        <label for="tel">Tel (เบอร์ติดต่อ)</label>
                         <input class="form-control" type="text" name="tel" id="tel" />
                     </div>
                     <div class="form-group">
-                        <label for="information">Information <span class="text-danger">*</span></label>
+                        <label for="information">Information (ข้อมูลที่ต้องการสอบถาม)<span class="text-danger">*</span></label>
                         <textarea class="form-control" name="information" id="information" rows="4"></textarea>
                         <div id="information-error" style="color:red"></div>
                     </div>

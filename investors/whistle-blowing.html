@@ -9,7 +9,11 @@
 <section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head9.png');" data-img-width="1600" data-diff="100">
     <div class="content-a">
         <div class="content-b" style="text-transform: uppercase;">
-            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">{{ menuGlobal.corporateGovernanceMenu }}</h1>
+            {% if craft.i18n.getCurrentLocale() == 'th' %}
+                <h1 class="rsubold fonts">{{ menuGlobal.corporateGovernanceMenuThai }}</h1>
+            {% else %}
+                <h1 class="montserrat-bold fonts">{{ menuGlobal.corporateGovernanceMenu }}</h1>
+            {% endif %}
         </div>
     </div>
 </section>
@@ -17,7 +21,7 @@
 <section class="section _toppd-60 _bottompd-100">
     
     <div class="sectional-header">
-        <h3 class="heading">{{ craft.entries.section('whistleBlowing').first().title }}</h3>  
+        <h3 class="heading">{% if craft.i18n.getCurrentLocale() == 'th' %}รับข้อร้องเรียน{% else %}{{ craft.entries.section('whistleBlowing').first().title }}{% endif %}</h3>  
     </div>
 
     <!--
@@ -181,20 +185,20 @@
                 <!--<form class="needs-validation" action="http://www.gel.co.th/gel_co_th_scripts/index.php">-->
                 <form class="needs-validation" action="#">      
                     <div class="form-group">
-                        <label for="email">Email <span class="text-danger">*</span></label>
+                        <label for="email">Email (อีเมล์)<span class="text-danger">*</span></label>
                         <input class="form-control" type="text" name="email" id="email" /> 
                         <div id="email-error" style="color:red"></div>
                     </div>
                     <div class="form-group">
-                        <label for="name">Your Name</label>
+                        <label for="name">Your Name (ชื่อ)</label>
                         <input class="form-control" type="text" name="name" id="name" />
                     </div>
                     <div class="form-group">
-                        <label for="tel">Tel</label>
+                        <label for="tel">Tel (เบอร์ติดต่อ)</label>
                         <input class="form-control" type="text" name="tel" id="tel" />
                     </div>
                     <div class="form-group">
-                        <label for="information">Information <span class="text-danger">*</span></label>
+                        <label for="information">Information (ข้อมูลที่จะร้องเรียน)<span class="text-danger">*</span></label>
                         <textarea class="form-control" name="information" id="information" rows="4"></textarea>
                         <div id="information-error" style="color:red"></div>
                     </div>

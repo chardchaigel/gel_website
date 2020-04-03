@@ -16,7 +16,11 @@
 <section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head9.png');" data-img-width="1600" data-diff="100">
     <div class="content-a">
         <div class="content-b">
-            <h1 class="{% if craft.i18n.getCurrentLocale() == 'th' %}rsubold{% else %}montserrat-bold{% endif %} fonts">CORPORATE SOCIAL RESPONSIBILITY</h1>
+            {% if craft.i18n.getCurrentLocale() == 'th' %}
+                <h1 class="rsubold fonts">{{ menuGlobal.corporateSocialResponsibilityMenuThai }}</h1>
+            {% else %}
+                <h1 class="montserrat-bold fonts">{{ menuGlobal.corporateSocialResponsibilityMenu }}</h1>
+            {% endif %}
         </div>
     </div>
 </section>
