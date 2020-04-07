@@ -60,9 +60,13 @@
                         
                                 <li class="dropdown-submenu" style="text-transform: uppercase;"><a href="javascript: void(0);">{{ menuGlobal.corporateGovernanceMenuThai }}</a>
                                     <ul class="dropdown-menu" style="left: 240px;position: absolute; top: 80px; z-index: 204;">
-                                        <li><a href="{{ craft.entries.section('cgPolicy').first().url }}">นโยบายการกำากับดูแลกิจการ</a></li>
+                                        <li><a href="{{ craft.entries.section('cgPolicy').first().url }}">นโยบายการกำกับดูแลกิจการ</a></li>
+                                        <li><a href="{{ craft.entries.section('charters').first().url }}">กฎบัตร</a></li>
+                                        <li><a href="{{ craft.entries.section('importantDocument').first().url }}">เอกสารสำคัญของบริษัท</a></li>
                                         <li><a href="{{ craft.entries.section('cgScore').first().url }}">CG Score</a></li>
-                                        <li><a href="{{ craft.entries.section('whistleBlowing').first().url }}">รับข้อร้องเรียน</a></li>
+                                        <li><a href="{{ craft.entries.section('whistleBlowing').first().url }}">ร้องเรียนผ่านทางเวปไซต์</a></li>
+                                        <li><a href="{{ craft.entries.section('whistleBlowingOther').first().url }}">ร้องเรียนผ่านช่องทางอื่นๆ</a></li>
+                                        
                                     </ul>
                                 </li>
 

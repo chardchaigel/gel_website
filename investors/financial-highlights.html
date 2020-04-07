@@ -34,11 +34,7 @@
     </div>
     -->    
     <div class="sectional-header">
-        {% if craft.i18n.getCurrentLocale() == 'th' %}
-            <h3 class="heading">ข้อมูลทางการเงินที่สำคัญ</h3>
-        {% else %}
-            <h3 class="heading">{{ craft.entries.section('financialHighlights').first().title }}</h3>
-        {% endif %}
+        <h3 class="heading">{{ craft.entries.section('financialHighlights').first().title }}</h3>
     </div>
     <div class="container" align="center">
         <img src="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/GEL-Financial-Hightlights1.png">
