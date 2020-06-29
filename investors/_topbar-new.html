@@ -193,9 +193,51 @@
 
                     <!--li class='{% if top == 5 %}active{% endif %}'><a href="{{ siteUrl }}about-gel">{{ craft.entries.id(35).first().title }}</a></li-->
                     <li class='{% if top == 5 %}active{% endif %}'>
+                    <!--
                         <a href="{% if craft.i18n.getCurrentLocale() == 'th' %}http://investor-th.gel.co.th/general_info.html{% else %}http://investor.gel.co.th/general_info.html{% endif %}" title="{% if craft.i18n.getCurrentLocale() == 'th' %}เกี่ยวกับเรา{% else %}About GEL{% endif %}">
                             {% if craft.i18n.getCurrentLocale() == 'th' %}เกี่ยวกับเรา{% else %}ABOUT GEL{% endif %}
                         </a>
+                    -->
+                        <a href="javascript: void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            {% if craft.i18n.getCurrentLocale() == 'th' %}
+                                เกี่ยวกับเรา
+                            {% else %}
+                                About GEL
+                            {% endif %}
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ craft.entries.section('corporateSocialResponsibility').first().url }}">
+                                {% if craft.i18n.getCurrentLocale() == 'th' %}ข้อมูลทั่วไปของบริษัท{% else %}General Information{% endif %}
+                            </a></li>
+                            <li><a href="{{ craft.entries.section('corporateSocialResponsibility').first().url }}">
+                                {% if craft.i18n.getCurrentLocale() == 'th' %}ลักษณะการประกอบธุรกิจ{% else %}Nature of Business{% endif %}
+                            </a></li>
+                            <li><a href="{{ craft.entries.section('corporateSocialResponsibility').first().url }}">
+                                {% if craft.i18n.getCurrentLocale() == 'th' %}โครงสร้างกลุ่มบริษัท{% else %}Group Structure{% endif %}
+                            </a></li>
+                            <li><a href="{{ craft.entries.section('corporateSocialResponsibility').first().url }}">
+                                {% if craft.i18n.getCurrentLocale() == 'th' %}ประวัติความเป็นมาของบริษัท{% else %}Company's History{% endif %}
+                            </a></li>
+                            <li><a href="{{ craft.entries.section('corporateSocialResponsibility').first().url }}">
+                                {% if craft.i18n.getCurrentLocale() == 'th' %}สาส์นจากประธานกรรมการ{% else %}Message from the chairman{% endif %}
+                            </a></li>
+                            <li><a href="{{ craft.entries.section('corporateSocialResponsibility').first().url }}">
+                                {% if craft.i18n.getCurrentLocale() == 'th' %}สาส์นจากผู้บริหาร{% else %}Message from CEO{% endif %}
+                            </a></li>
+                            <li><a href="{{ craft.entries.section('corporateSocialResponsibility').first().url }}">
+                                {% if craft.i18n.getCurrentLocale() == 'th' %}วิสัยทัศน์และพันธกิจ{% else %}Vision & Mission{% endif %}
+                            </a></li>
+                            <li><a href="{{ craft.entries.section('corporateSocialResponsibility').first().url }}">
+                                {% if craft.i18n.getCurrentLocale() == 'th' %}โครงสร้างการจัดการ{% else %}Management Structure{% endif %}
+                            </a></li>
+                            <li><a href="{{ craft.entries.section('corporateSocialResponsibility').first().url }}">
+                                {% if craft.i18n.getCurrentLocale() == 'th' %}คณะกรรมการบริษัท{% else %}Board of Directors{% endif %}
+                            </a></li>
+                            <li><a href="{{ craft.entries.section('corporateSocialResponsibility').first().url }}">
+                                {% if craft.i18n.getCurrentLocale() == 'th' %}คณะผู้บริหาร{% else %}Management Team{% endif %}
+                            </a></li>
+                        </ul>
+                        
                     </li>
                     <li class='{% if top == 6 %}active{% endif %}'><a href="{{ siteUrl }}contact-us">{{ craft.entries.id(36).first().title }}</a></li>
                     <li>
