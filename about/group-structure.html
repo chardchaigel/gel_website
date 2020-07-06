@@ -1,0 +1,50 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 5 %}
+
+{% include "_topbar" %}
+
+<section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head9.png');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            {% if craft.i18n.getCurrentLocale() == 'th' %}
+                <h1 class="rsubold fonts">โครงสร้างกลุ่มบริษัท</h1>
+            {% else %}
+                <h1 class="montserrat-bold fonts">Group Structure</h1>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="section _toppd-100 _bottompd-100">
+    <!--
+    <div class="sectional-header">
+        <h3 class="heading">{{ craft.entries.section('corporateSocialResponsibility').first().title }}</h3>  
+    </div>
+    -->
+    
+    {% if craft.i18n.getCurrentLocale() == 'th' %}
+    <div class="container" align="center" style="width:70%">
+        <div class="row" style="padding-bottom:30px;">
+            ณ วันที่ 31 ธันวาคม 2560
+            <br/>
+            <b>หมายเหตุ:</b> ไม่มีบุคคลที่มีความขัดแย้งถือหุ้นในบริษัทย่อยและบริษัทร่วมเกินร้อยละ 10
+        </div>
+    </div>
+    {% else %}
+    <div class="container" align="center" style="width:70%">
+        <div class="row" style="padding-bottom:30px;">
+            As at 31 December 2017
+            <br/>
+            <b>Note:</b> There were no shareholders with conflicts in subsidiary and associated companies exceeding 10%
+        </div>
+    </div>
+    {% endif %}
+
+
+</section>
+
+
+
+{% include "_footer" %}
+{% include "_footer2" %}

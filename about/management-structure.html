@@ -1,0 +1,46 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 5 %}
+
+{% include "_topbar" %}
+
+<section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head9.png');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            {% if craft.i18n.getCurrentLocale() == 'th' %}
+                <h1 class="rsubold fonts">โครงสร้างการจัดการ</h1>
+            {% else %}
+                <h1 class="montserrat-bold fonts">Management Structure</h1>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="section _toppd-100 _bottompd-100">
+    <!--
+    <div class="sectional-header">
+        <h3 class="heading">{{ craft.entries.section('corporateSocialResponsibility').first().title }}</h3>  
+    </div>
+    -->
+    
+    {% if craft.i18n.getCurrentLocale() == 'th' %}
+    <div class="container" style="width:100%" align="center">
+        <div class="row">
+            <div class="col">                
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="container">
+        <div class="row" style="width:100%" align="center">
+            <div class="col">
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+</section>
+
+
+{% include "_footer" %}
+{% include "_footer2" %}

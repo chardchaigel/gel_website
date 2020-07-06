@@ -1,0 +1,454 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 5 %}
+
+<style>
+    .imageCenter {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .textCenter {
+        text-align: center;
+    }
+
+    .modal-header, h4, .close {
+        /* background-color: #5cb85c; */
+        color:white !important;
+        text-align: center;
+        font-size: 30px;
+    }
+    .modal-footer {
+        background-color: #f9f9f9;
+    }
+</style>
+
+
+{% include "_topbar" %}
+
+<section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head9.png');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            {% if craft.i18n.getCurrentLocale() == 'th' %}
+                <h1 class="rsubold fonts">คณะกรรมการบริษัท</h1>
+            {% else %}
+                <h1 class="montserrat-bold fonts">Board of Directors</h1>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="section _toppd-100 _bottompd-100">
+
+    <!-- Start Modal -->
+    <div class="modal fade" id="bioModal" role="dialog" width="1500px">
+        <div class="modal-dialog" style="width:60%" height="900px">
+            <div class="modal-content">
+
+                <div class="modal-header" style="padding:20px 50px;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4>
+                    <span class="glyphicon glyphicon-lock"></span> 
+                    <span style="color:black; font-size:large">
+                        <span id="bioName"></span><br/><span id="bioTitle"></span>
+                    </span>
+                    </h4>
+                </div>
+                <div class="modal-body" style="padding:20px 40px;">                
+                    <iframe id="bioContent" src="#" style="border:none" width="100%" height="800"></iframe>                
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Finish Modal -->
+
+    
+    <div class="container">
+        {% if craft.i18n.getCurrentLocale() == 'th' %}
+        <div class="row" style="margin-bottom: 1.5em;">
+           <div class="col-md-12">
+                <div class="btn-group">
+                    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">คณะกรรมการ<span class="caret"></span></a>
+                    <ul id="commMenu" class="dropdown-menu">
+                        <li><a id="menu-board-of-directors" href="#">คณะกรรมการ</a></li>
+                        <li><a id="menu-audit-committee" href="#">คณะกรรมการตรวจสอบ</a></li>
+                        <li><a id="menu-executive-committee" href="#">คณะกรรมการบริหาร</a></li>
+                        <li><a id="menu-nomination-remuneration-committee" href="#">คณะกรรมกาสรรหาและพิจารณาค่าตอบแทน</a></li>
+                        <li><a id="menu-coporate-governance-committee" href="#">คณะกรรมการกำกับดูแลกิจการที่ดี</a></li>
+                        <li><a id="menu-risk-management-committee" href="#">คณะกรรมการบริหารความเสี่ยง</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="row" style="margin-bottom: 1.5em;">
+           <div class="col-md-12">
+                <div class="btn-group">
+                    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">Board of Directors<span class="caret"></span></a>
+                    <ul id="commMenu" class="dropdown-menu">
+                        <li><a id="menu-board-of-directors" href="#">Board of Directors</a></li>
+                        <li><a id="menu-audit-committee" href="#">Audit Committee</a></li>
+                        <li><a id="menu-executive-committee" href="#">Executive Committee</a></li>
+                        <li><a id="menu-nomination-remuneration-committee" href="#">Nomination and Remuneration Committee</a></li>
+                        <li><a id="menu-coporate-governance-committee" href="#">Corporate Governance Committee</a></li>
+                        <li><a id="menu-risk-management-committee" href="#">Risk Management Committee</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        
+       
+        {% include "about/biography/board-of-directors" %}
+        {% include "about/biography/audit-committee" %}
+        {% include "about/biography/executive-committee" %}
+        {% include "about/biography/nomination-remuneration-committee" %}
+        {% include "about/biography/corporate-governance-committee" %}
+        {% include "about/biography/risk-management-committee" %}
+
+    </div>
+</section>
+
+
+
+{% include "_footer" %}
+
+<script>
+    var selectedMenuId = "";
+
+    function hideAll() {
+        $("#board-of-directors").hide();
+        $("#audit-committee").hide();
+        $("#executive-committee").hide();
+        $("#nomination-remuneration-committee").hide();
+        $("#corporate-governance-committee").hide();
+        $("#risk-management-committee").hide();
+    }
+
+    function initialDisplay() {
+        // console.log('initial display');
+        hideAll();
+        $("#board-of-directors").show();
+    }
+ 
+    $(document).ready(function() {
+ 
+        initialDisplay();
+
+        $(".dropdown-menu li a").click(function(){
+            var selText = $(this).text();
+            $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+            
+            var id = $(this).attr('id');  // Get ID of the selected dropdown item
+            // console.log("Selected ID: " + id);
+            hideAll();
+
+            switch(id) {
+                case 'menu-board-of-directors':       
+                    $("#board-of-directors").show();
+                    break;
+                case 'menu-audit-committee':
+                    $('#audit-committee').show();
+                    break;
+                case 'menu-executive-committee':
+                    $('#executive-committee').show();
+                    break;
+                case 'menu-nomination-remuneration-committee':
+                    $('#nomination-remuneration-committee').show();
+                    break;
+                case 'menu-coporate-governance-committee':
+                    $('#corporate-governance-committee').show();
+                    break;
+                case 'menu-risk-management-committee':
+                    $('#risk-management-committee').show();
+                    break;
+            }
+
+            selectedMenuId = id;
+            
+        });
+
+        if($(".borwornsak-th").length) {
+            $(".borwornsak-th").click(function() {  
+                $("#bioName").text("ศาสตราจารย์ กิตติคุณ ดร.บวรศักดิ์ อุวรรณโณ");
+                $("#bioTitle").text("ประธานกรรมการบริษัทและกรรมการอิสระ");
+                $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/borwornsak-th.html");
+                $("#bioModal").modal();
+            });
+        } else if($(".borwonsk-eng")) {
+            $(".borwornsak-eng").click(function() {  
+                $("#bioName").text("Prof. Dr. Borwornsak Uwanno");
+                $("#bioTitle").text("Chairman of the Board of Director / Independent Director");
+                $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/borwornsak-eng.html");
+                $("#bioModal").modal();
+            });
+        }
+
+        if($(".sophon-th").length) {
+            $(".sophon-th").click(function() {  
+                $("#bioName").text("นายโสภณ ผลประสิทธิ์");
+                $("#bioTitle").text("รองประธานกรรมการบริษัทและกรรมการอิสระ");
+                $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/sophon-th.html");
+                $("#bioModal").modal();
+            });
+        } else if($(".sophon-eng")) {
+            $(".sophon-eng").click(function() {  
+                $("#bioName").text("Mr. Sophon Pholprasit");
+                $("#bioTitle").text("Vice Chairman of the Board / Independent Director");
+                $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/sophon-eng.html");
+                $("#bioModal").modal();
+            });
+        }
+
+        if($(".thitipong-th").length) {
+            $(".thitipong-th").click(function() {
+                $("#bioName").text("นายธิติพงศ์ ตั้งพูนผลวิวัฒน์");
+
+                 switch(selectedMenuId) {
+                    case "menu-executive-committee":
+                        $("#bioTitle").text("ประธานกรรมการบริหาร");
+                        break;
+                    case "menu-nomination-remuneration-committee":
+                        $("#bioTitle").text("กรรมการสรรหาและพิจารณาค่าตอบแทน");
+                        break;
+                    case "menu-risk-management-committee":
+                        $("#bioTitle").text("กรรมการกำกับดูแลความเสี่ยง");
+                        break;
+                    case "menu-board-of-directors":
+                        $("#bioTitle").text("ประธานกรรมการบริหาร / ประธานเจ้าหน้าที่บริหาร");
+                        break;
+                }
+                
+                $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/thitipong-th.html");
+                $("#bioModal").modal();
+            });
+        } else if($(".thitipong-eng")) {
+            $(".thitipong-eng").click(function() {
+                $("#bioName").text("Mr. Thitipong Tangpoonphonvivat");
+
+                switch(selectedMenuId) {
+                    case "menu-executive-committee":
+                        $("#bioTitle").text("Chief Executive Officer");
+                        break;
+                    case "menu-nomination-remuneration-committee":
+                        $("#bioTitle").text("Nomination & Remuneration Committee");
+                        break;
+                    case "menu-risk-management-committee":
+                        $("#bioTitle").text("Risk Management Committee");
+                        break;
+                    case "menu-board-of-directors":
+                        $("#bioTitle").text("Director / Chief Executive Officer");
+                        break;
+                }
+
+                $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/thitipong-eng.html");
+                $("#bioModal").modal();
+            });
+        }
+
+        if($(".pannee-th").length) {
+            $(".pannee-th").click(function() {
+                $("#bioName").text("นางพรรณี จารุสมบัติ");
+
+                switch(selectedMenuId) {
+                    case "menu-audit-committee":
+                        $("#bioTitle").text("กรรมการตรวจสอบ");
+                        break;
+                    case "menu-board-of-directors":
+                        $("#bioTitle").text("ประธานกรรมการบริหาร / ประธานเจ้าหน้าที่บริหาร");
+                        break;  
+                }
+                
+                $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/pannee-th.html");
+                $("#bioModal").modal();
+            });
+        } else if($(".pannee-eng")) {
+            $(".pannee-eng").click(function() {
+                $("#bioName").text("Mrs. Pannee Jarusombat");
+                
+                switch(selectedMenuId) {
+                    case "menu-audit-committee":
+                        $("#bioTitle").text("Audit Committee");
+                        break;
+                    case "menu-board-of-directors":
+                        $("#bioTitle").text("Audit Committee and Independent Director");
+                        break;  
+                }
+               
+                $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/pannee-eng.html");
+                $("#bioModal").modal();
+            });
+        }
+
+        if($(".vichaya-th").length) {
+            $(".vichaya-th").click(function() {
+                $("#bioName").text("ดร.วิชญะ เครืองาม");
+
+                switch(selectedMenuId) {
+                    case "menu-audit-committee":
+                        $("#bioTitle").text("กรรมการตรวจสอบ");
+                        break;
+                    case "menu-nomination-remuneration-committee":
+                        $("#bioTitle").text("กรรมการสรรหาและพิจารณาค่าตอบแทน");
+                        break;
+                    case "menu-coporate-governance-committee":
+                        $("#bioTitle").text("ประธานกรรมการกำกับดูแลกิจการที่ดี");
+                        break;
+                    case "menu-board-of-directors":
+                        $("#bioTitle").text("กรรมการตรวจสอบและกรรมการอิสระ");
+                        break;
+                }
+                
+                $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/vichaya-th.html");
+                $("#bioModal").modal();
+            });
+        } else if($(".vichaya-eng")) {
+            $(".vichaya-eng").click(function() {
+                $("#bioName").text("Dr. Vichya Kreangam");
+
+                switch(selectedMenuId) {
+                    case "menu-audit-committee":
+                        $("#bioTitle").text("Audit Committee");
+                        break;
+                    case "menu-nomination-remuneration-committee":
+                        $("#bioTitle").text("Nomination & Remuneration Committee");
+                        break;
+                    case "menu-coporate-governance-committee":
+                        $("#bioTitle").text("Chairman of Corporate Governance Committee");
+                        break;
+                    case "menu-board-of-directors":
+                        $("#bioTitle").text("Audit Committee and Independent Director");
+                        break;
+                }
+
+                $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/vichaya-eng.html");
+                $("#bioModal").modal();
+            });
+        }
+
+        if($(".wirach-th").length) {
+            $(".wirach-th").click(function() {
+                $("#bioName").text("นายวิรัช มรกตกาล");
+
+                switch(selectedMenuId) {
+                    case "menu-nomination-remuneration-committee":
+                        $("#bioTitle").text("ประธานกรรมการสรรหาและพิจารณาค่าตอบแทน");
+                        break;
+                    case "menu-coporate-governance-committee":
+                        $("#bioTitle").text("กรรมการกำกับดูแลกิจการที่ดี");
+                        break;
+                    case "menu-board-of-directors":
+                        $("#bioTitle").text("กรรมการอิสระ");
+                        break;  
+                }
+                
+                $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/wirach-th.html");
+                $("#bioModal").modal();
+            });
+        } else if($(".wirach-eng").length) {
+            $(".wirach-eng").click(function() {
+                $("#bioName").text("Mr. Wirach Morakotkarn");
+
+                switch(selectedMenuId) {
+                    case "menu-nomination-remuneration-committee":
+                        $("#bioTitle").text("Chairman of the Nomination & Remuneration Committee");
+                        break;
+                    case "menu-coporate-governance-committee":
+                        $("#bioTitle").text("Corporate Governance Committee");
+                        break;
+                    case "menu-board-of-directors":
+                        $("#bioTitle").text("Independent Director");
+                        break;  
+                }
+
+                $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/wirach-eng.html");
+                $("#bioModal").modal();
+            });
+        }
+        
+        if($(".wuttichai-th").length) {
+            $(".wuttichai-th").click(function() {
+                $("#bioName").text("นายวุฒิชัย เศรษฐบุตร");
+
+                switch(selectedMenuId) {
+                    case "menu-executive-committee":
+                        $("#bioTitle").text("กรรมการบริหาร");
+                        break;
+                    case "menu-nomination-remuneration-committee":
+                        $("#bioTitle").text("กรรมการสรรหาและพิจารณาค่าตอบแทน");
+                        break;
+                    case "menu-coporate-governance-committee":
+                        $("#bioTitle").text("กรรมการกำกับดูแลกิจการที่ดี");
+                        break;
+                    case "menu-board-of-directors":
+                        $("#bioTitle").text("กรรมการบริษัท / กรรมการบริหารและเลขานุการบริษัท");
+                        break;
+                }
+
+                $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/wuttichai-th.html");
+                $("#bioModal").modal();
+            });    
+        } else if($(".wuttichai-eng").length) {
+            $(".wuttichai-eng").click(function() {
+                $("#bioName").text("Mr. Wuttichai Sresthabutra");
+
+                switch(selectedMenuId) {
+                    case "menu-executive-committee":
+                        $("#bioTitle").text("Executive Committee");
+                        break;
+                    case "menu-nomination-remuneration-committee":
+                        $("#bioTitle").text("Nominating & Remuneration Committee");
+                        break;
+                    case "menu-coporate-governance-committee":
+                        $("#bioTitle").text("Corporate Governance Committee");
+                        break;
+                    case "menu-board-of-directors":
+                        $("#bioTitle").text("Director / Executive Director / Company Secretary");
+                        break;
+                }
+
+                $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/wuttichai-eng.html");
+                $("#bioModal").modal();
+            });
+        }
+
+        if($(".wisadja-th").length) {
+            $(".wisadja-th").click(function() {
+                $("#bioName").text("นางวิสัจจา คชเสนา");
+
+                switch(selectedMenuId) {
+                    case "menu-coporate-governance-committee":
+                        $("#bioTitle").text("กรรมการกำกับดูแลกิจการที่ดี");
+                        break;
+                    case "menu-risk-management-committee":
+                        $("#bioTitle").text("กรรมการกำกับดูแลความเสี่ยง");
+                        break;
+                }
+
+                $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/wisadja-th.html");
+                $("#bioModal").modal();
+            });    
+        } else if($(".wisadja-eng").length) {
+            $(".wisadja-eng").click(function() {
+                $("#bioName").text("Mrs. Wisadja Kochsena");
+
+                switch(selectedMenuId) {
+                    case "menu-coporate-governance-committee":
+                        $("#bioTitle").text("Corporate Governance Committee");
+                        break;
+                    case "menu-risk-management-committee":
+                        $("#bioTitle").text("Risk Management Committee");
+                        break;
+                }
+
+                $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/wisadja-eng.html");
+                $("#bioModal").modal();
+            });    
+        }
+
+    });
+</script>
+
+{% include "_footer2" %}

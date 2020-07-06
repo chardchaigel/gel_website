@@ -1,0 +1,219 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 5 %}
+
+{% include "_topbar" %}
+
+<section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head9.png');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            {% if craft.i18n.getCurrentLocale() == 'th' %}
+                <h1 class="rsubold fonts">{{ menuGlobal.aboutGeneralInformationMenuThai }}</h1>
+            {% else %}
+                <h1 class="montserrat-bold fonts">{{ menuGlobal.aboutGeneralInformationMenu }}</h1>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="section _toppd-100 _bottompd-100">
+    <!--
+    <div class="sectional-header">
+        <h3 class="heading">{{ craft.entries.section('corporateSocialResponsibility').first().title }}</h3>  
+    </div>
+    -->
+    
+    {% if craft.i18n.getCurrentLocale() == 'th' %}
+    <div class="container" align="center" style="width:70%">
+        <div class="row" style="padding-bottom:30px;">
+            <div class="col">
+                <table class="table">
+                <tbody>
+                    <tr class="table-active">
+                        <td width="25%">ชื่อบริษัท</td>
+                        <td>บริษัท เจนเนอรัล เอนจิเนียริ่ง จำกัด (มหาชน)</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>ชื่อย่อ</td>
+                        <td>GEL (เมื่อวันที่ 14 มีนาคม พ.ศ. 2557 บริษัทฯ เปลี่ยนแปลงชื่อย่อหลักทรัพย์จากเดิม “GEN” เป็น “GEL”)</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>ที่ตั้งสำนักงานใหญ่</td>
+                        <td>44/2 หมู่ที่ 2 ถนนติวานนท์ ต.บางกะดี อ.เมือง จ.ปทุมธานี 12000</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>สำนักงานสาขา</td>
+                        <td>
+                            สาขาที่ 1 : เลขที่ 99,99/1-5 หมู่ที่ 4 ตำบลเชียงรากน้อย อำเภอสามโคก จังหวัดปทุมธานี 12160
+                            <br/>สาขาที่ 2 : เลขที่ 99/19 หมู่ที่ 2 ตำบลเชิงเนิน อำเภอเมืองระยอง จังหวัดระยอง 21000 (จดทะเบียนเมื่อวันที่ 9 มีนาคม พ.ศ. 2558)
+                        </td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>ลักษณะการประกอบธุรกิจ</td>
+                        <td>ผลิตและจำหน่ายวัสดุก่อสร้าง : เสาเข็ม, คอนกรีตอัดแรง, พื้นและผนังคอนกรีตสำเร็จรูป, ผลิตภัณฑ์คอนกรีตเสริมใยแก้ว, ปูนซีเมนต์ชนิดไม่หดตัว และพื้นคอนกรีตอัดแรงในที่ชนิด ไร้คาน</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>เลขทะเบียนบริษัท</td>
+                        <td>0107536001338</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>หมายเลขติดต่อ</td>
+                        <td>
+                            โทรศัพท์ 02-501-2020, 02-501-1055
+                            <br/>
+                            โทรสาร 02-501-2468, 02-501-2134
+                        </td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>เว็บไซต์</td>
+                        <td><a href="http://www.gel.co.th">www.gel.co.th</a></td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>ทุนจดทะเบียน</td>
+                        <td>4,588,195,610.65 บาท</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>ทุนเรียกชำระแล้ว</td>
+                        <td>4,588,195,610.65 บาท</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>จำนวนหุ้นสามัญชำระแล้ว</td>
+                        <td>5,397,877,189 หุ้น</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>มูลค่าที่ตราไว้</td>
+                        <td>0.85 บาท</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>รอบระยะเวลาบัญชี</td>
+                        <td>1 มกราคม - 31 ธันวาคม</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>นายทะเบียนหลักทรัพย์</td>
+                        <td>
+                            <b>บริษัท ศูนย์รับฝากหลักทรัพย์ (ประเทศไทย) จำกัด</b><br/>
+                            อาคารตลาดหลักทรัพย์แห่งประเทศไทย<br/>
+                            เลขที่ 62 ถนนรัชดาภิเษก แขวงคลองเตย<br/>
+                            เขตคลองเตย กรุงเทพมหานคร 10110<br/>
+                            <b>โทรศัพท์ :</b> 02-229-2800<br/>
+                            <b>โทรสาร :</b> 02-359-1259
+                        </td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>ผู้สอบบัญชี</td>
+                        <td>
+                            <b>บริษัท แกรนท์ ธอนตัน จำกัด</b><br/>
+                            เลขที่ 87/1 ออลซีซั่นส์ เพลส แคปิตอล ทาวเวอร์ ชั้น 18<br/>
+                            ถนนวิทยุ แขวงลุมพินี เขตปทุมวัน กรุงเทพฯ 10330<br/>
+                            <b>โทรศัพท์ :</b> 02-205-8222<br/>
+                            <b>โทรสาร :</b> 02-634-5399 , 02-654-3339
+                        </td>
+                    </tr>
+
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="container" align="center" style="width:70%">
+        <div class="row" style="padding-bottom:30px;">
+            <div class="col">
+                <table class="table">
+                <tbody>
+                    <tr class="table-active">
+                        <td width="25%">Company Name</td>
+                        <td>General Engineering Public Company Limited</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>Company Symbol</td>
+                        <td>GEL (On 14 March 2014 the Company changed symbol from “GEN” to “GEL”)</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>Headquarter</td>
+                        <td>44/2, Moo 2, Tivanon Road, Tambon Bangkadee, Ampoe Muang, Pathumthani Province 12000</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>Branch Office</td>
+                        <td>
+                            <b>Branch 2</b>: 544 Moo 3 Baanlen, Bang Pa Inn district, Ayutthaya province 13160
+                            <br/><b>Branch 3</b>: 99 Moo 4 Tambon Pa District, Pathum Thani Province. 12160
+                            <br/>(Registered on 9 March 2015)
+                        </td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>Nature of Business</td>
+                        <td>Building Materials, Prestressed concrete pile products, Concrete slab and wall products, Fiber glass reinforced concrete product (GRC), Being non-shrink cement and In-situ precast concrete slab without beams.</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>Register Number</td>
+                        <td>0107536001338</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>Contact Numbers</td>
+                        <td>
+                            Telephone 02-501-2020, 02-501-1055
+                            <br/>
+                            Fax 02-501-2468, 02-501-2134
+                        </td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>Website</td>
+                        <td><a href="http://www.gel.co.th">www.gel.co.th</a></td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>Registered Share Capital</td>
+                        <td>4,588,195,610.65 Baht</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>Paid Up Share Capital</td>
+                        <td>4,588,195,610.65 Baht</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>Paid Up Ordinary Shares</td>
+                        <td>5,397,877,189 shares</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>Par Value</td>
+                        <td>0.85 Baht</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>Accounting Period</td>
+                        <td>1 January - 31 December</td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>Share Registrar</td>
+                        <td>
+                            <b>Secruities Depository Centre (Thailand) Co., Ltd.</b><br/>
+                            62, The Stock Exchange of Thailand Building.<br/>
+                            Ratchadaphisek Road Khwaeng Khlongtoei,<br/>
+                            Khet Khlongtoei Bangkok Metropolis 10110<br/>
+                            <b>Telephone :</b> 02-229-2800<br/>
+                            <b>Fax :</b> 02-359-1259
+                        </td>
+                    </tr>
+                    <tr class="table-active">
+                        <td>Auditor</td>
+                        <td>
+                            <b>Grant Thornton Company Limited</b><br/>
+                            18th Floor, Capital Tower All Seasons Place<br/>
+                            87/1 Wireless Road Bangkok 10330, Thailand.<br/>
+                            <b>Telephone :</b> +66 2 205 8222<br/>
+                            <b>Fax :</b> +66 2 654 3339
+                        </td>
+                    </tr>
+
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+
+</section>
+
+
+
+{% include "_footer" %}
+{% include "_footer2" %}

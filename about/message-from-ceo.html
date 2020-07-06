@@ -1,0 +1,100 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 5 %}
+
+{% include "_topbar" %}
+
+<section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head9.png');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            {% if craft.i18n.getCurrentLocale() == 'th' %}
+                <h1 class="rsubold fonts">สาส์นจากผู้บริหาร</h1>
+            {% else %}
+                <h1 class="montserrat-bold fonts">Message from CEO</h1>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="section _toppd-100 _bottompd-100">
+    <!--
+    <div class="sectional-header">
+        <h3 class="heading">{{ craft.entries.section('corporateSocialResponsibility').first().title }}</h3>  
+    </div>
+    -->
+    
+    {% if craft.i18n.getCurrentLocale() == 'th' %}
+    <div class="container" style="width:70%">
+        <div class="row">
+            <div class="col">
+            <table>
+            <tr>                
+                <td> 
+                <div style="margin-left:30px;">
+                    <div style="text-align:justify; padding:20px; background-color:#1d5124; color:#ffffff; width:80%;">
+                        ในปี 2560 ที่ผ่านมา บริษัทฯ ยังคงมียอดขายที่เติบโตอย่างต่อเนื่อง แต่จากการแข่งขันกันสูง ในอุตสาหกรรมก่อสร้าง ส่งผลให้ราคาขายปรับตัวลดลง อีกทั้งต้นทุนการผลิตที่สูงขึ้น เนื่องมาจากความ ผันผวนของราคาเหล็กและราคาคอนกรีตที่ขยับตัวเพิ่มขึ้น รวมถึงบริษัทฯ ต้องแบกรับภาระต้นทุนที่บริษัทฯ ได้มีการจัดหาคนเพื่อมารองรับงานที่คาดว่าจะเติบโตขึ้นอย่างมีนัยสำคัญ แต่ในขณะที่โรงงานหล่อแผ่นคอนกรีตสำเร็จรูปและโรงงานเสาเข็มคอนกรีตอัดแรงแห่งใหม่ของบริษัทฯ ยังคงผลิตได้ไม่เต็มกำลัง การผลิต ส่งผลให้ผลประกอบการโดยรวมของบริษัทฯ ยังไม่เป็นไปตามเป้าที่วางไว้
+                    </div>
+                    <div style="margin-top:15px; text-align:justify; width:80%">
+                    <p>สำหรับในปี 2561 บริษัทฯ ยังคงมุ่งเน้นที่จะเติบโตโดยเน้นกลยุทธ์การควบคุมต้นทุนการผลิต ทั้งวงจรตั้งแต่การควบคุมต้นทุนวัตถุดิบ ซึ่งเป็นผลจากการที่บริษัทฯ ได้ขยายตัวของธุรกิจไปสู่ธุรกิจต้นน้ำ โดยการลงทุนก่อสร้างโรงงานผลิตและจำหน่ายลวดเหล็กกล้าชั้นพิเศษ ในนามบริษัท เซเว่น ไวร์ จำกัด การเพิ่มประสิทธิภาพการผลิต การเดินหน้าผลิตอย่างเต็มกำลังและส่งมอบงานให้ถึงมือลูกค้าทันท่วงที ซึ่งล้วนแต่ส่งผลให้บริษัทฯ มีต้นทุนที่ต่ำลง รวมถึงบริษัทฯ ยังได้เพิ่มความหลากหลายของผลิตภัณฑ์ของบริษัทฯ เพื่อตอบสนองความต้องการของลูกค้าได้ทุกกลุ่มความต้องการ จากการที่บริษัทฯ ลงทุนก่อสร้างโรงงานผลิตและจำหน่ายเสาเข็มคอนกรีตเสริมเหล็กอัดแรงโดยใช้แรงเหวี่ยง (“Spun pile”) ร่วมกับ Nippon Concrete Industries Co., Ltd. ซึ่งเป็นบริษัทชั้นนำที่จะเข้ามาช่วยเพิ่มศักยภาพ ส่งเสริม และสนับสนุนธุรกิจของบริษัทฯ ที่มีอยู่ในปัจจุบันให้แข็งแกร่งมากยิ่งขึ้น
+                    </p>
+                    <p style="margin-top:15px;">
+                    ภาพรวมในอุตสาหกรรมก่อสร้างปี 2561 จะเป็นอีกปีที่หลายฝ่ายคาดการณ์ว่ามูลค่าการลงทุนโครงสร้างพื้นฐานของภาครัฐจะสูงขึ้น จากการได้รับอานิสงส์จากการเร่งลงทุนโครงสร้างพื้นฐาน ขนาดใหญ่ของรัฐที่มีอยู่หลายโครงการ ขณะที่โครงการภาคเอกชนทยอยฟื้นตัวตามเพราะนักลงทุนมีความเชื่อมั่นมากขึ้น ซึ่งเป็นเหตุผลที่บริษัทฯ มั่นใจว่าผลประกอบการของบริษัทฯ จะปรับตัวมาในทิศทางที่ดีขึ้น ทีมผู้บริหารพร้อมสร้างการเติบโตอย่างยั่งยืนและมั่นคง โดยมุ่งเน้นนโยบายในการขยายตัวไปสู่ธุรกิจ ครบวงจร พร้อมทั้งนโยบายในการลดต้นทุนและค่าใช้จ่าย รวมถึงการบริหารงานที่มีประสิทธิภาพ การเพิ่มอัตราการใช้กำลังการผลิตของโรงงาน เพิ่มประสิทธิภาพการผลิตรวมถึงการพัฒนาบุคลากรอย่งต่อเนื่อง จึงทำให้บริษัทฯ มั่นใจได้ว่าผลประกอบการจะกลับมาเป็นบวกได้อีกครั้ง
+                    </p>
+                    <p>
+                        <div style="text-align:right;">
+                        <b>นายธิติพงศ์ ตั้งพูนผลวิวัฒน์<br/>
+                        ประธานเจ้าหน้าที่บริหาร
+                        </b>
+                        </div>
+                    </p>
+                    </div>
+                </div>
+                </td>
+                <td style="vertical-align:top;"><img src="http://www.gel.co.th/assets/images/investor/Mr_Thitipong-Tangpoonphonvivat.jpg#asset:1201:url"></td>
+            </tr>
+            </table>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            <table>
+            <tr>   
+                <td> 
+                <div style="margin-left:30px;">
+                    <div style="text-align:justify; padding:20px; background-color:#1d5124; color:#ffffff; width:80%;">
+                    Overall, the operating result in 2017 of the Company indicated a continuous increase in sales. However, the fierce competition in the construction material industry led the selling price to decrease. Cost of production also increased due to the fluctuation in PC wire and PC strand and concrete prices. The Company is also enduring with the increase in costs as new employees are hired to support the expected growth, while the new precast concrete wall and pre-stressed concrete pile factories are not yet able to produce at theirs best capacity. Therefore, the operating result could not reach the expected target.
+                    </div>
+                    <div style="margin-top:15px; text-align:justify; width:80%">
+                    <p>In 2018, the Company aims to achieving a sustainable growth by focusing on cost control strategy through all production cycle from raw material phase. The Company’s expansion has integrated operations from upstream to downstream business by investing on the construction of the PC wire and PC Strand factory named “Seven Wire Company Limited”. Production optimization, production at full available capacity, and on time delivery to customers shall all benefit the Company in cost savings. Moreover, the Company has expanded the product line to meet the customers’ need in all market segments. The establishment of the subsidiary company for manufacturing and retailing “’ Spun Pile Concrete” by partnering with Nippon Concrete Industries Co., Ltd. - a leading company that will enhance the potential, promote, and support the business strength to move forward.
+                    </p>
+                    <p style="margin-top:15px;">
+                    The overall construction material industry in 2018 is another year that is expected to increase intensely from the carried-forward government investments in the infrastructure projects after being extended continuously. This is benefited from the large-scale investment by the governmental segment, while the private sector projects start to recover as investors’ confidence increase. The Company strongly believes that from all factors mentioned will shift the operating results direction. In addition, the management is committed to achieving a sustainable growth by focusing on becoming a total solution . Moreover, cost control policy, effective management, full capacity production, increase efficiency, and on-going human development will contribute to the Company’s success in achieving positive results.
+                    </p>
+                    <p>
+                        <div style="text-align:right;">
+                        <b>Mr. Thitipong Tangpoonphonvivat<br/>
+                        Chief Executive Officer
+                        </b>
+                        </div>
+                    </p>
+                    </div>
+                </div>
+                </td>
+                <td style="vertical-align:top;"><img src="http://www.gel.co.th/assets/images/investor/Mr_Thitipong-Tangpoonphonvivat.jpg#asset:1206:url"></td>
+            </tr>
+            </table>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+
+</section>
+
+
+
+{% include "_footer" %}
+{% include "_footer2" %}

@@ -1,0 +1,92 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 5 %}
+
+{% include "_topbar" %}
+
+<section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head9.png');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            {% if craft.i18n.getCurrentLocale() == 'th' %}
+                <h1 class="rsubold fonts">วิสัยทัศน์และพันธกิจ</h1>
+            {% else %}
+                <h1 class="montserrat-bold fonts">Vision & Mission</h1>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="section _toppd-100 _bottompd-100">
+    <!--
+    <div class="sectional-header">
+        <h3 class="heading">{{ craft.entries.section('corporateSocialResponsibility').first().title }}</h3>  
+    </div>
+    -->
+    
+    {% if craft.i18n.getCurrentLocale() == 'th' %}
+    <div class="container" style="width:100%" align="center">
+        <div class="row">
+            <div class="col">
+                <div style="margin-left:30px; width:80%;">
+                    <div style="text-align:justify; padding:20px; background-color:#1d5124; color:#ffffff;">    
+                        <span style="font-size:40px;">วิสัยทัศน์</span>
+                        <br/>
+                        <span style="font-size:25px;">เราจะทำให้การก่อสร้างเป็นเรื่องง่าย และใช้ทรัพยากรอย่างประหยัดและคุ้มค่าที่สุด</span>
+                    </div>
+                    <div align="center" style="margin-top:20px;">
+                        <span><b style="font-size:40px;">พันธกิจ</b></span>
+                        <br/>
+                        <span style=""><b>บริษัทฯ มีความมุ่งมั่นในการดำเนินงานให้สำเร็จผล โดยผ่านแนวคิด</b></span>
+                    </div>
+                    <div style="background-color:#f9f9f9; margin-top:15px; padding:15px; width:90%" align="left">
+                        <ul>
+                            <li><b>Total Solution Provider</b>
+                            <br/>เราจะเป็นศูนย์รวมในการให้บริการและให้คำปรึกษาแก่ลูกค้า เพื่อให้ลูกค้าสามารถ ควบคุม ต้นทุน และระยะเวลาการก่อสร้างตามแผนที่วางไว้ ให้เกิดคุณภาพสูงสุด 
+                            </li>
+                            <li><b>เป็นที่หนึ่งในใจลูกค้า</b>
+                            <br/>เราจะผลิตสินค้าและให้บริการเพื่อทำให้ลูกค้าได้รับความความพึงพอใจสูงสุด
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="container">
+        <div class="row" style="width:100%" align="center">
+            <div class="col">
+                <div style="margin-left:30px; width:80%;">
+                    <div style="text-align:justify; padding:20px; background-color:#1d5124; color:#ffffff;">    
+                        <span style="font-size:40px;">Vision</span>
+                        <br/>
+                        <span style="font-size:25px;">Construction without complication</span>
+                    </div>
+                    <div align="center" style="margin-top:20px;">
+                        <span><b style="font-size:40px;">Mission</b></span>
+                        <br/>
+                        <span style=""><b>The company is committed to operating a successful result. Through the concept</b></span>
+                    </div>
+                    <div style="background-color:#f9f9f9; margin-top:15px; padding:15px; width:90%" align="left">
+                        <ul>
+                            <li><b>Total Solution Provider</b>
+                            <br/>We are the embodiment of service and advice to customers. So customers can control costs and div period, as planned and highest quality.
+                            </li>
+                            <li><b>It is one of the customers</b>
+                            <br/>We are producing goods and services to provide customers with the most satisfaction.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+
+</section>
+
+
+
+{% include "_footer" %}
+{% include "_footer2" %}

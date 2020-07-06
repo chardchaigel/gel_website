@@ -1,0 +1,369 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 5 %}
+
+<style>
+    .imageCenter {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .textCenter {
+        text-align: center;
+    }
+
+    .modal-header, h4, .close {
+        /* background-color: #5cb85c; */
+        color:white !important;
+        text-align: center;
+        font-size: 30px;
+    }
+    .modal-footer {
+        background-color: #f9f9f9;
+    }
+</style>
+
+
+{% include "_topbar" %}
+
+<section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head9.png');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            {% if craft.i18n.getCurrentLocale() == 'th' %}
+                <h1 class="rsubold fonts">คณะผู้บริหาร</h1>
+            {% else %}
+                <h1 class="montserrat-bold fonts">Management Team</h1>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="section _toppd-100 _bottompd-100">
+    <!--
+    <div class="sectional-header">
+        <h3 class="heading">{{ craft.entries.section('corporateSocialResponsibility').first().title }}</h3>  
+    </div>
+    -->
+
+    <div class="modal fade" id="bioModal" role="dialog" width="1500px">
+        <div class="modal-dialog" style="width:60%" height="900px">
+            <div class="modal-content">
+
+                <div class="modal-header" style="padding:20px 50px;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4>
+                    <span class="glyphicon glyphicon-lock"></span> 
+                    <span style="color:black; font-size:large">
+                        <span id="bioName"></span><br/><span id="bioTitle"></span>
+                    </span>
+                    </h4>
+                </div>
+                <div class="modal-body" style="padding:20px 40px;">                
+                    <iframe id="bioContent" src="#" style="border:none" width="100%" height="800"></iframe>                
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% if craft.i18n.getCurrentLocale() == 'th' %}
+    <div class="container">
+
+        <div class="row" >
+            <div class="col-md-4">
+            <div id="thitipong" class="card textCenter" style="width: 30rem;">
+                <img class="imageCenter" style="width:245px; height:183px;" src="http://www.gel.co.th/assets/images/investor/Management-Team/thitipong_tangpoonphonvivat.jpg#asset:2556:url">
+                <div class="card-body">
+                    <p>                        
+                        <a id="#" href="#">นายธิติพงศ์ ตั้งพูนผลวิวัฒน์</a>
+                        <br/>
+                        <a id="#" href="#">ประธานกรรมการบริหาร / ประธานเจ้าหน้าที่บริหาร</a>
+                    </p>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-4">
+                <div id="wuttichai" class="card textCenter" style="width: 30rem;">
+                <img class="imageCenter" style="width:245px; height:183px;" src="http://www.gel.co.th/assets/images/investor/Management-Team/wuttichai_sresthabutra.jpg#asset:2557:url">
+                <div class="card-body">
+                    <p> 
+                        นายวุฒิชัย เศรษฐบุตร
+                        <br/>
+                        กรรมการบริหาร
+                    </p>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card textCenter" style="width: 30rem;">
+                <img class="imageCenter" style="width:245px; height:183px;" src="http://www.gel.co.th/assets/images/investor/Management-Team/thitipong_tangpoonphonvivat.jpg#asset:2556:url">
+                <div class="card-body">
+                    <p>                        
+                        นายวุฒิชัย เศรษฐบุตร
+                        <br/>
+                        กรรมการบริหาร
+                    </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="row" >
+            <div class="col-md-4">
+            <div class="card textCenter" style="width: 30rem;">
+                <img class="imageCenter" style="width:245px; height:183px;" src="http://www.gel.co.th/assets/images/investor/Management-Team/thitipong_tangpoonphonvivat.jpg#asset:2556:url">
+                <div class="card-body">
+                    <p>                        
+                        นางวิสัจจา คชเสนา
+                        <br/>
+                        ผู้อำนวยการฝ่ายบัญชีและการเงิน
+                    </p>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card textCenter" style="width: 30rem;">
+                <img class="imageCenter" style="width:245px; height:183px;" src="http://www.gel.co.th/assets/images/investor/Management-Team/wuttichai_sresthabutra.jpg#asset:2557:url">
+                <div class="card-body">
+                    <p> 
+                        นายสุรชาติ อุ่วมอุ่ม
+                        <br/>
+                        ผู้อำนวยการฝ่ายผลิตเสาเข็มคอนกรีตอัดแรง
+                    </p>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card textCenter" style="width: 30rem;">
+                <img class="imageCenter" style="width:245px; height:183px;" src="http://www.gel.co.th/assets/images/investor/Management-Team/thitipong_tangpoonphonvivat.jpg#asset:2556:url">
+                <div class="card-body">
+                    <p>                        
+                        นายสมนึก พทธิวัฒน์
+                        <br/>
+                        ผู้อำนวยการฝ่ายบริการเสาเข็มคอนกรีตอัดแรง
+                    </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="row" >
+            <div class="col-md-4">
+            <div class="card textCenter" style="width: 30rem;">
+                <img class="imageCenter" style="width:245px; height:183px;" src="http://www.gel.co.th/assets/images/investor/Management-Team/thitipong_tangpoonphonvivat.jpg#asset:2556:url">
+                <div class="card-body">
+                    <p>                        
+                        นายศรันย์ เวียงคำมา
+                        <br/>
+                        ผู้อำนวยการฝ่ายผลิตและบริการผนังคอนกรีตสำเร็จรูป
+                    </p>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card textCenter" style="width: 30rem;">
+                <img class="imageCenter" style="width:245px; height:183px;" src="http://www.gel.co.th/assets/images/investor/Management-Team/wuttichai_sresthabutra.jpg#asset:2557:url">
+                <div class="card-body">
+                    <p> 
+                        นางลินจง ศรีสงคราม
+                        <br/>
+                        ผู้อำนวยการฝ่ายขาย
+                    </p>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card textCenter" style="width: 30rem;">
+                <img class="imageCenter" style="width:245px; height:183px;" src="http://www.gel.co.th/assets/images/investor/Management-Team/thitipong_tangpoonphonvivat.jpg#asset:2556:url">
+                <div class="card-body">
+                    <p>                        
+                        นายวุฒิชัย เศรษฐบุตร
+                        <br/>
+                        กรรมการบริหาร
+                    </p>
+                </div>
+            </div>
+            </div>
+        </div>
+       
+    </div>
+    
+    {% else %}
+    
+    <div class="container">
+        
+        <div class="row" >
+            <div class="col-md-4">
+            <div id="thitipong" class="card textCenter" style="width: 30rem;">
+                <a id="thitipong" href="#"><img class="imageCenter" style="width:245px; height:183px;" src="http://www.gel.co.th/assets/images/investor/Management-Team/thitipong_tangpoonphonvivat.jpg#asset:2556:url"></a>
+                <div class="card-body">
+                    <p>                        
+                        <a id="thitipong" href="#">Mr. Thitipong Tangpoonphonvivat</a>
+                        <br/>
+                        Director / Chief Executive Officer
+                    </p>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-4">
+                <div id="wuttichai" class="card textCenter" style="width: 30rem;">
+                <img class="imageCenter" style="width:245px; height:183px;" src="http://www.gel.co.th/assets/images/investor/Management-Team/wuttichai_sresthabutra.jpg#asset:2557:url">
+                <div class="card-body">
+                    <p> 
+                        Mr. Wuttichai Sresthabutra
+                        <br/>
+                        Executive Committee
+                    </p>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card textCenter" style="width: 30rem;">
+                <img class="imageCenter" style="width:245px; height:183px;" src="http://www.gel.co.th/assets/images/investor/Management-Team/thitipong_tangpoonphonvivat.jpg#asset:2556:url">
+                <div class="card-body">
+                    <p>                        
+                        Mr. Thitipong Tangpoonphonvivat
+                        <br/>
+                        Director / Chief Executive Officer
+                    </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="row" >
+            <div class="col-md-4">
+            <div class="card textCenter" style="width: 30rem;">
+                <img class="imageCenter" style="width:245px; height:183px;" src="http://www.gel.co.th/assets/images/investor/Management-Team/thitipong_tangpoonphonvivat.jpg#asset:2556:url">
+                <div class="card-body">
+                    <p>                        
+                        Ms. Wisadja Kodchasena
+                        <br/>
+                        Director of Finance and Account
+                    </p>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card textCenter" style="width: 30rem;">
+                <img class="imageCenter" style="width:245px; height:183px;" src="http://www.gel.co.th/assets/images/investor/Management-Team/wuttichai_sresthabutra.jpg#asset:2557:url">
+                <div class="card-body">
+                    <p> 
+                        Mr. Surachart Uamum
+                        <br/>
+                        Vice PResident of Production Concrete Piles
+                    </p>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card textCenter" style="width: 30rem;">
+                <img class="imageCenter" style="width:245px; height:183px;" src="http://www.gel.co.th/assets/images/investor/Management-Team/thitipong_tangpoonphonvivat.jpg#asset:2556:url">
+                <div class="card-body">
+                    <p>                        
+                        Mr. Somnuk Puttiwat
+                        <br/>
+                        Vice PResident of Service Ring Reinforced Concrete
+                    </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="row" >
+            <div class="col-md-4">
+            <div class="card textCenter" style="width: 30rem;">
+                <img class="imageCenter" style="width:245px; height:183px;" src="http://www.gel.co.th/assets/images/investor/Management-Team/thitipong_tangpoonphonvivat.jpg#asset:2556:url">
+                <div class="card-body">
+                    <p>                        
+                        Mr. Saran Wiangkhamma
+                        <br/>
+                        Vice President of Production & Service Precast Concrete Wall
+                    </p>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card textCenter" style="width: 30rem;">
+                <img class="imageCenter" style="width:245px; height:183px;" src="http://www.gel.co.th/assets/images/investor/Management-Team/wuttichai_sresthabutra.jpg#asset:2557:url">
+                <div class="card-body">
+                    <p> 
+                        Mrs. Linjong Srisongkhram
+                        <br/>
+                        Vice President of Sale
+                    </p>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card textCenter" style="width: 30rem;">
+                <img class="imageCenter" style="width:245px; height:183px;" src="http://www.gel.co.th/assets/images/investor/Management-Team/thitipong_tangpoonphonvivat.jpg#asset:2556:url">
+                <div class="card-body">
+                    <p>                        
+                        Mr. Somnuk Puttiwat
+                        <br/>
+                        Vice PResident of Service Ring Reinforced Concrete
+                    </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+    {% endif %}
+
+</section>
+
+
+
+{% include "_footer" %}
+
+{% if craft.i18n.getCurrentLocale() == 'th' %}
+<script>
+    $(document).ready(function(){
+        // $("#myBtn").click(function(){
+        //     $("#myModal").modal();
+        // });
+
+        $("#thitipong").click(function() {
+            $("#bioName").text("นายธิติพงศ์ ตั้งพูนผลวิวัฒน์");
+            $("#bioTitle").text("ประธานกรรมการบริหาร / ประธานเจ้าหน้าที่บริหาร");
+            $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/thitipong-th.html");
+            $("#bioModal").modal();
+        });
+
+        $("#wuttichai").click(function() {
+            $("#bioName").text("นายวุฒิชัย เศรษฐบุตร");
+            $("#bioTitle").text("กรรมการบริหาร");
+            $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/wuttichai-th.html");
+            $("#bioModal").modal();
+        });
+    });
+</script>
+{% else %}
+<script>
+    $(document).ready(function(){
+        // $("#myBtn").click(function(){
+        //     $("#myModal").modal();
+        // });
+
+        $("#thitipong").click(function() {
+            $("#bioName").text("Mr. Thitipong Tangpoonphonvivat");
+            $("#bioTitle").text("Chairman of Executive Committee / Chief Executive Officer");
+            $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/thitipong-eng.html");
+            $("#bioModal").modal();
+        });
+
+        $("#wuttichai").click(function() {
+            $("#bioName").text("Mr. Wuttichai Sresthabutra");
+            $("#bioTitle").text("Executive Committee");
+            $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/wuttichai-eng.html");
+            $("#bioModal").modal();
+        });
+    });
+</script>
+{% endif %}
+
+{% include "_footer2" %}

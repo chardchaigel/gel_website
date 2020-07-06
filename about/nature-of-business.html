@@ -1,0 +1,320 @@
+{% include "_header" %}
+{% include "_header2" %}
+{% set top = 5 %}
+
+{% include "_topbar" %}
+
+<section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head9.png');" data-img-width="1600" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+            {% if craft.i18n.getCurrentLocale() == 'th' %}
+                <h1 class="rsubold fonts">ลักษณะการประกอบธุรกิจ</h1>
+            {% else %}
+                <h1 class="montserrat-bold fonts">Nature of Business</h1>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="section _toppd-100 _bottompd-100">
+    <!--
+    <div class="sectional-header">
+        <h3 class="heading">{{ craft.entries.section('corporateSocialResponsibility').first().title }}</h3>  
+    </div>
+    -->
+    
+    {% if craft.i18n.getCurrentLocale() == 'th' %}
+    <div class="container" align="center" style="width:70%">
+        <div class="row" style="padding-bottom:30px;">
+            <div class="col">
+                <table class="table">
+                <thead>
+                    <tr class="" style="text-align:center; background-color:#1f752c; color:white">
+                        <td width="15%">กลุ่มผลิตภัณฑ์</td>
+                        <td width="20%">ชื่อผลิตภัณฑ์</td>
+                        <td width="35%">คุณสมบัติ</td>
+                        <td width="30%">การใช้งาน</td>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr class="table-active">
+                    <td>ผลิตภัณฑ์เสาเข็มคอนกรีตอัดแรง</td>
+                    <td>
+                        <ul>
+                            <li>เสาเข็มเหลี่ยม</li>
+                            <li>เสาสี่เหลี่ยมกลวง</li>
+                            <li>เสาเข็มรูปตัวไอ (I) เสาเข็มกลมแรงเหวี่ยง</li>
+                        </ul>
+                    </td>
+                    <td>เป็นเสาที่มีประสิทธิภาพประหยัดเวลาและค่าใช้จ่ายในการก่อสร้าง</td>
+                    <td>หน่วยงานราชการ,รัฐวิสาหกิจ, ห้างสรรพสินค้า, โรงงาน, มหาวิทยาลัย, สนามบิน, บ้านจัดสรรและงานสะพานเป็นต้น</td>
+                </tr>
+                <tr class="table-active">
+                    <td>ผลิตภัณฑ์พื้นและผนังคอนกรีต</td>
+                    <td>ผนังคอนกรีตสำเร็จรูป</td>
+                    <td>สามารถควบคุมคุณภาพและมาตรฐานได้สม่ำเสมอทั้งแผ่นทำให้การก่อสร้างเป็นไปอย่างรวดเร็ว ตามที่เจ้าของโครงการออกแบบ</td>
+                    <td>งานโรงงาน, ห้างสรรพสินค้า,อาคารสูง, สนามกีฬา เป็นต้น</td>
+                </tr>
+                <tr class="table-active">
+                    <td></td>
+                    <td>พื้นคอนกรีตอัดแรงในที่ชนิดไร้คาน</td>
+                    <td>ใช้สำหรับพื้นที่ที่ต้องการช่วงห่างของเสากว้างกว่าปกติ และไม่ต้องการมีคานรับพื้น เพื่อให้อาคารมีเสาน้อยมีพื้นที่ใช้สอยมากขึ้น ก่อสร้างได้รวดเร็ว</td>
+                    <td>อาคารจอดรถ, พื้นอาคารสูง</td>
+                </tr>
+                <tr class="table-active">
+                    <td></td>
+                    <td>พื้นกึ่งสำเร็จรูป</td>
+                    <td>ออกแบบเพื่อใช้งานพื้นที่มีช่วงเสากว้างเกินกว่ามาตรฐานปกติสามารถทดแทนไม้แบบ และเป็นพื้นรับน้ำหนักได้ตามที่ผู้ออก แบบต้องการมีความรวดเร็วในการติดตั้ง</td>
+                    <td>งานโรงงาน, งานสะพาน</td>   
+                </tr>
+                <tr class="table-active">
+                    <td></td>
+                    <td>ผลิตภัณฑ์คอนกรีตเสริมใยแก้ว (GRC)</td>
+                    <td>นำใยแก้วมาเสริมในคอนกรีตโดยไม่เสริมเหล็ก ทำชิ้นงานได้รูปทรงต่างๆ มีลักษณะคมชัด สวยงาม น้ำหนักเบาง่ายต่อการติดตั้ง ซึ่งคอนกรีตธรรมดาทำได้ยาก</td>
+                    <td>สำหรับลูกค้าที่ต้องการใช้ผลิตภัณฑ์ที่เป็นลักษณะพิเศษเฉพาะ</td>
+                </tr>
+                <tr class="table-active">
+                    <td></td>
+                    <td>กำแพงกันเสียง</td>
+                    <td>เป็นผลิตภัณฑ์ที่ใช้ป้องกัน, แก้ไขมลภาวะทางเสียงจากการจราจรหรือเครื่องจักร</td>
+                    <td>ทางด่วนพิเศษ, ทางหลวง, อุโมงค์ทางลอด,โรงไฟฟ้าและโรงงานต่าง ๆ</td>
+                </tr>
+                </tbody>
+                </table>
+
+                <table class="table">
+                <thead>
+                    <tr class="" style="text-align:center; background-color:#1f752c; color:white">
+                        <td width="15%">กลุ่มผลิตภัณฑ์</td>
+                        <td width="20%">ชื่อผลิตภัณฑ์</td>
+                        <td width="35%">คุณสมบัติ</td>
+                        <td width="30%">การใช้งาน</td>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr class="table-active">
+                    <td>ผลิตภัณฑ์พิเศษ</td>
+                    <td>*ซีเมนต์พิเศษเดนก้า (DENKA)</td>
+                    <td>เป็นปูนซีเมนต์ชนิดไม่หดตัว และรับกำลังอัดสูง ใช้ในงานติดตั้งเครื่องจักร เป็นผลิตภัณฑ์เดียวจากหลายสิบผลิตภัณฑ์ที่ผ่านการทดสอบคุณภาพ และอนุมัติให้ใช้ในการติดตั้งเครื่องกำเนิดไฟฟ้าของการไฟฟ้าฝ่ายผลิตแห่งประเทศไทย</td>
+                    <td>โรงไฟฟ้าของ EGAT โรงงานไฟฟ้าIPP และ SPP โรงปิโตรเคมีโรงกลั่นน้ำมัน โรงเหล็ก โรงงานกระดาษ โรงงานน้ำตาล ฯลฯ</td>
+                </tr>
+                <tr class="table-active">
+                    <td></td>
+                    <td>ปูนซีเมนต์ผสมเสร็จสำหรับงานฉาบบาง (Super Skim coat)</td>
+                    <td>เป็นปูนฉาบผิวบางมีความยึดเกาะสูงใช้สำหรับตกแต่งผนัง, พื้นผิวงาน Precast ให้ออกมาเรียบสวยงาม ไม่มีรอยแตกร้าว ประหยัดสีในการทาสี</td>
+                    <td>ในอาคารสูงทั่วไป ในงานผนังสำเร็จรูปในการตกแต่งทั่วไป</td>
+                </tr>
+                <tr class="table-active">
+                    <td></td>
+                    <td>เคมีภัณฑ์ก่อสร้าง (ESTOP)</td>
+                    <td>มีผลิตภัณฑ์ที่หลากหลายเหมาะสำหรับงานประเภทต่างๆ เช่น งานกันซึม งานดูแลพื้นผิวคอนกรีต และงานซ่อมแซม เป็นต้น</td>
+                    <td>ใช้สำหรับการก่อสร้างทุกชนิด</td>
+                </tr>
+                </tbody>
+                </table>
+
+                <table class="table">
+                <thead>
+                    <tr class="" style="text-align:center; background-color:#1f752c; color:white">
+                        <td width="15%">กลุ่มผลิตภัณฑ์</td>
+                        <td width="20%">ชื่อผลิตภัณฑ์</td>
+                        <td width="35%">คุณสมบัติ</td>
+                        <td width="30%">การใช้งาน</td>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr class="table-active">
+                    <td>ผลิตภัณฑ์ STEEL (บริษัทฯ เป็นตัวแทนจำหน่าย)</td>
+                    <td>เหล็กเส้นเหล็กรูปพรรณ</td>
+                    <td>ความสามารถในการขึ้นรูป และความทนทานยอดเยี่ยมรวมถึงยืด-หยุ่นได้ดีมีค่าจุดครากและการนำความร้อนที่ดีตลอดจนคุณสมบัติที่สำคัญอีกอย่างหนึ่งที่มีในเหล็กกล้าไร้สนิม มีความทนทานต่อการกัดกร่อน</td>
+                    <td>ใช้สำหรับการก่อสร้างทุกชนิด</td>
+                </tr>
+                </tbody>
+                </table>
+
+                <table class="table">
+                <thead>
+                    <tr class="" style="text-align:center; background-color:#1f752c; color:white">
+                        <td width="15%">กลุ่มผลิตภัณฑ์</td>
+                        <td width="20%">ชื่อผลิตภัณฑ์</td>
+                        <td width="35%">คุณสมบัติ</td>
+                        <td width="30%">การใช้งาน</td>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr class="table-active">
+                    <td>ผลิตภัณฑ์คอนกรีตผสมเสร็จ</td>
+                    <td> </td>
+                    <td>เป็นส่วนผสมของปูนซีเมนต์ หินทราย น้ำ และน้ำยาผสมคอนกรีตที่ผสมกันเบ็ดเสร็จจากโรงงาน</td>
+                    <td>ใช้สำหรับงานก่อสร้างทุกชนิดมีลักษณะพิเศษที่เหมาะสมกับงานก่อสร้างทุกประเภท</td>
+                </tr>
+                <tr class="table-active">
+                    <td>(บริษัทฯ เป็นตัวแทนจำหน่าย)</td>
+                    <td> </td>
+                    <td>รวมถึงบริการจัดส่งไปที่หน่วยงานก่อสร้างโดยรถผสมคอนกรีต</td>
+                    <td> </td>
+                </tr>
+                <tr class="table-active">
+                    <td colspan="4">* เป็นสินค้าที่ได้รับการรับรองระบบคุณภาพ ISO 9001: 2008</td>
+                </tr>
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="container" align="center" style="width:70%">
+        <div class="row" style="padding-bottom:30px;">
+            <div class="col">
+
+                <table class="table">
+                <thead>
+                    <tr class="" style="text-align:center; background-color:#1f752c; color:white">
+                        <td width="15%">Product Group</td>
+                        <td width="20%">Product Name</td>
+                        <td width="35%">Properties</td>
+                        <td width="30%">Usage</td>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr class="table-active">
+                    <td>Prestressed concrete pile products</td>
+                    <td>
+                        * Rectangular pile <br/>
+                        * Hollow rectangular pile <br/>
+                        * I-shape pile Prestressed Concrete Spun Piles
+                    </td>
+                    <td>Being efficient piles saving time and costs of construction</td>
+                    <td>Government units, state enterprises, department stores, factory, universities, airports, housing Developments and bridge works etc.</td>
+                </tr>
+                </tbody>
+                </table>
+
+                <table class="table">
+                <thead>
+                    <tr class="" style="text-align:center; background-color:#1f752c; color:white">
+                        <td width="15%">Product Group</td>
+                        <td width="20%">Product Name</td>
+                        <td width="35%">Properties</td>
+                        <td width="30%">Usage</td>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr class="table-active">
+                    <td>Concrete slab and wall products</td>
+                    <td>* Precast Concrete Wall</td>
+                    <td>Quality and standard can be regularly controlled on the whole piece for quick construction as designed by the project owner.</td>
+                    <td>Factory, department store, high-rise building, stadium etc.</td>
+                </tr>
+                <tr class="table-active">
+                    <td></td>
+                    <td>* In-situ precast Concrete slab without beams</td>
+                    <td>Used for space that requires an exceptionally wide distance of columns and requires no slab supporting beam so that the building has few columns and more space for use and that the construction can be made quickly.</td>
+                    <td>Car park building, High rise building floor</td>
+                </tr>
+                <tr class="table-active">
+                    <td></td>
+                    <td>Semi-finished slab</td>
+                    <td>Designed for use on a slab with a column distance wider than normal standard, it can replace model timber and support weights as needed by the designer. It can be installed quickly</td>
+                    <td>Factory work, bridge work</td>
+                </tr>
+                <tr class="table-active">
+                    <td></td>
+                    <td>* Fiber glass reinforced concrete product (GRC)</td>
+                    <td>Fiberglass reinforced concrete without steel reinforcement can make products in various shapes with resolution inform. They are attractive light-weighted and easy for installation. It is difficult for ordinary concrete to do so.</td>
+                    <td>For a customer who wants to use a product of a unique and specific Description.</td>
+                </tr>
+                <tr class="table-active">
+                    <td></td>
+                    <td>Noise Barrier</td>
+                    <td>Being a product used for the prevention of noise pollution resulting from traffic or machinery</td>
+                    <td>Special expressways, highways, underground tunnels, power plants and factories</td>
+                </tr>
+                </tbody>
+                </table>
+
+
+                <table class="table">
+                <thead>
+                    <tr class="" style="text-align:center; background-color:#1f752c; color:white">
+                        <td width="15%">Product Group</td>
+                        <td width="20%">Product Name</td>
+                        <td width="35%">Properties</td>
+                        <td width="30%">Usage</td>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr class="table-active">
+                    <td>Special products</td>
+                    <td>* DENKA special cement</td>
+                    <td>Being non-shrink cement and supporting a high pressure used for machinery Installation works. It is the one and only product of tens of products, which has passed quality tests and granted approval for use in the installation of generators of the Electricity Generating Authority of Thailand.</td>
+                    <td>EGAT power plants, IPP and SPP power Plants petro chemical Plants, oil refineries, Steel works, paper Factories sugar mills, etc.</td>
+                </tr>
+                <tr class="table-active">
+                    <td> </td>
+                    <td>Super Skim coat</td>
+                    <td>There is a thin plaster adhesion. Used for wall decorations, Precast work surface to smooth out beautifully. There are no cracks. Savings color of the painting.</td>
+                    <td>In general, high-rise buildings. The finished wall. In general decoration.</td>
+                </tr>
+                <tr class="table-active">
+                    <td></td>
+                    <td>Construction Chemicals (ESTOP)</td>
+                    <td>There are varieties of products which are suitable for different projects such as Waterproofing, Surface Treatment and Repairing etc.</td>
+                    <td>Used for all types of construction</td>
+                </tr>
+                </tbody>
+                </table>
+
+                <table class="table">
+                <thead>
+                    <tr class="" style="text-align:center; background-color:#1f752c; color:white">
+                        <td width="15%">Product Group</td>
+                        <td width="20%">Product Name</td>
+                        <td width="35%">Properties</td>
+                        <td width="30%">Usage</td>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr class="table-active">
+                    <td>Steel products (GEL is a distributor)</td>
+                    <td>Steel bar Steel</td>
+                    <td>Ability of forming and excellent durability including good stretching. Great yield point and heat conduction as well as another important feature that available in stainless steel is corrosion resistant.</td>
+                    <td>Used for all types of construction</td>
+                </tr>
+                </tbody>
+                </table>
+
+
+                <table class="table">
+                <thead>
+                    <tr class="" style="text-align:center; background-color:#1f752c; color:white">
+                        <td width="15%">Product Group</td>
+                        <td width="20%">Product Name</td>
+                        <td width="35%">Properties</td>
+                        <td width="30%">Usage</td>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr class="table-active">
+                    <td>Ready-mixed concrete products (GEL is a distributor)</td>
+                    <td> </td>
+                    <td>A mixture of sand, cement, water and concrete admixture mixed from factory including delivery to the construction site by concrete mixer truck.</td>
+                    <td>Used for all kinds of construction and has specifically appropriate to the construction of all types.</td>
+                </tr>
+                <tr class="table-active">
+                    <td colspan="4">* Being a product with quality certification under the ISO 9001: 2008 Standard</td>
+                </tr>
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+
+</section>
+
+
+
+{% include "_footer" %}
+{% include "_footer2" %}
