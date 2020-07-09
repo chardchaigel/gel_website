@@ -29,13 +29,14 @@
 <section class="section _toppd-60 _bottompd-100">    
     <div class="sectional-header">
         {% if craft.i18n.getCurrentLocale() == 'th' %}
-            <h3 class="heading">ผู้ถือหุ้นหลัก</h3>
+            <h3 class="heading">ผู้ถือหุ้นรายใหญ่</h3>
         {% else %}
             <h3 class="heading">{{ craft.entries.section('majorShareholders').first().title }}</h3>
         {% endif %}
     </div>
     <div class="container" align="center">
-        <img src="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/major-shareholders.png">
+        <!-- <img src="{{ craft.config.environmentVariables.baseUrl }}assets/images/investor/major-shareholders.png"> -->
+        <p>{{ entry.majorShareholderEntryContent }}</p> 
     </div>
 </section>
 
