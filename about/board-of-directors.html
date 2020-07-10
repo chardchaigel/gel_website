@@ -189,14 +189,31 @@
         if($(".sophon-th").length) {
             $(".sophon-th").click(function() {  
                 $("#bioName").text("นายโสภณ ผลประสิทธิ์");
-                $("#bioTitle").text("รองประธานกรรมการบริษัทและกรรมการอิสระ");
+                switch(selectedMenuId) {
+                    case "menu-risk-management-committee":
+                        $("#bioTitle").text("ประธานกรรมการกำกับดูแลความเสี่ยง");
+                        break;
+                    case "menu-board-of-directors":
+                        $("#bioTitle").text("รองประธานกรรมการบริษัทและกรรมการอิสระ");
+                        break;
+                }
+                
                 $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/sophon-th.html");
                 $("#bioModal").modal();
             });
         } else if($(".sophon-eng")) {
             $(".sophon-eng").click(function() {  
                 $("#bioName").text("Mr. Sophon Pholprasit");
-                $("#bioTitle").text("Vice Chairman of the Board / Independent Director");
+
+                switch(selectedMenuId) {
+                    case "menu-risk-management-committee":
+                        $("#bioTitle").text("Chairman of the Risk Management Committee");
+                        break;
+                    case "menu-board-of-directors":
+                        $("#bioTitle").text("Vice Chairman of the Board / Independent Director");
+                        break;
+                }
+ 
                 $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/sophon-eng.html");
                 $("#bioModal").modal();
             });
@@ -213,11 +230,8 @@
                     case "menu-nomination-remuneration-committee":
                         $("#bioTitle").text("กรรมการสรรหาและพิจารณาค่าตอบแทน");
                         break;
-                    case "menu-risk-management-committee":
-                        $("#bioTitle").text("กรรมการกำกับดูแลความเสี่ยง");
-                        break;
                     case "menu-board-of-directors":
-                        $("#bioTitle").text("ประธานกรรมการบริหาร / ประธานเจ้าหน้าที่บริหาร");
+                        $("#bioTitle").text("กรรมการบริษัท");
                         break;
                 }
                 
@@ -239,7 +253,7 @@
                         $("#bioTitle").text("Risk Management Committee");
                         break;
                     case "menu-board-of-directors":
-                        $("#bioTitle").text("Director / Chief Executive Officer");
+                        $("#bioTitle").text("Director");
                         break;
                 }
 
@@ -257,7 +271,7 @@
                         $("#bioTitle").text("กรรมการตรวจสอบ");
                         break;
                     case "menu-board-of-directors":
-                        $("#bioTitle").text("ประธานกรรมการบริหาร / ประธานเจ้าหน้าที่บริหาร");
+                        $("#bioTitle").text("กรรมการอิสระ");
                         break;  
                 }
                 
@@ -273,7 +287,7 @@
                         $("#bioTitle").text("Audit Committee");
                         break;
                     case "menu-board-of-directors":
-                        $("#bioTitle").text("Audit Committee and Independent Director");
+                        $("#bioTitle").text("Independent Director");
                         break;  
                 }
                
@@ -297,7 +311,7 @@
                         $("#bioTitle").text("ประธานกรรมการกำกับดูแลกิจการที่ดี");
                         break;
                     case "menu-board-of-directors":
-                        $("#bioTitle").text("กรรมการตรวจสอบและกรรมการอิสระ");
+                        $("#bioTitle").text("กรรมการอิสระ");
                         break;
                 }
                 
@@ -319,7 +333,7 @@
                         $("#bioTitle").text("Chairman of Corporate Governance Committee");
                         break;
                     case "menu-board-of-directors":
-                        $("#bioTitle").text("Audit Committee and Independent Director");
+                        $("#bioTitle").text("Independent Director");
                         break;
                 }
 
@@ -333,12 +347,15 @@
                 $("#bioName").text("นายวิรัช มรกตกาล");
 
                 switch(selectedMenuId) {
-                    case "menu-nomination-remuneration-committee":
-                        $("#bioTitle").text("ประธานกรรมการสรรหาและพิจารณาค่าตอบแทน");
+                    case "menu-audit-committee":
+                        $("#bioTitle").text("ประธานกรรมการตรวจสอบ");
                         break;
-                    case "menu-coporate-governance-committee":
-                        $("#bioTitle").text("กรรมการกำกับดูแลกิจการที่ดี");
-                        break;
+                    // case "menu-nomination-remuneration-committee":
+                    //     $("#bioTitle").text("ประธานคณะกรรมการสรรหาและพิจารณาค่าตอบแทน");
+                    //     break;
+                    // case "menu-coporate-governance-committee":
+                    //     $("#bioTitle").text("กรรมการกำกับดูแลกิจการที่ดี");
+                    //     break;
                     case "menu-board-of-directors":
                         $("#bioTitle").text("กรรมการอิสระ");
                         break;  
@@ -352,12 +369,15 @@
                 $("#bioName").text("Mr. Wirach Morakotkarn");
 
                 switch(selectedMenuId) {
-                    case "menu-nomination-remuneration-committee":
-                        $("#bioTitle").text("Chairman of the Nomination & Remuneration Committee");
+                    case "menu-audit-committee":
+                        $("#bioTitle").text("Chairman of the Audit Committee");
                         break;
-                    case "menu-coporate-governance-committee":
-                        $("#bioTitle").text("Corporate Governance Committee");
-                        break;
+                    // case "menu-nomination-remuneration-committee":
+                    //     $("#bioTitle").text("Chairman of the Nomination & Remuneration Committee");
+                    //     break;
+                    // case "menu-coporate-governance-committee":
+                    //     $("#bioTitle").text("Corporate Governance Committee");
+                    //     break;
                     case "menu-board-of-directors":
                         $("#bioTitle").text("Independent Director");
                         break;  
@@ -376,14 +396,14 @@
                     case "menu-executive-committee":
                         $("#bioTitle").text("กรรมการบริหาร");
                         break;
-                    case "menu-nomination-remuneration-committee":
-                        $("#bioTitle").text("กรรมการสรรหาและพิจารณาค่าตอบแทน");
-                        break;
+                    // case "menu-nomination-remuneration-committee":
+                    //     $("#bioTitle").text("กรรมการสรรหาและพิจารณาค่าตอบแทน");
+                    //     break;
                     case "menu-coporate-governance-committee":
                         $("#bioTitle").text("กรรมการกำกับดูแลกิจการที่ดี");
                         break;
                     case "menu-board-of-directors":
-                        $("#bioTitle").text("กรรมการบริษัท / กรรมการบริหารและเลขานุการบริษัท");
+                        $("#bioTitle").text("กรรมการและเลขานุการบริษัท");
                         break;
                 }
 
@@ -398,18 +418,58 @@
                     case "menu-executive-committee":
                         $("#bioTitle").text("Executive Committee");
                         break;
-                    case "menu-nomination-remuneration-committee":
-                        $("#bioTitle").text("Nominating & Remuneration Committee");
-                        break;
+                    // case "menu-nomination-remuneration-committee":
+                    //     $("#bioTitle").text("Nominating & Remuneration Committee");
+                    //     break;
                     case "menu-coporate-governance-committee":
                         $("#bioTitle").text("Corporate Governance Committee");
                         break;
                     case "menu-board-of-directors":
-                        $("#bioTitle").text("Director / Executive Director / Company Secretary");
+                        $("#bioTitle").text("Director and Company Secretary");
                         break;
                 }
 
                 $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/wuttichai-eng.html");
+                $("#bioModal").modal();
+            });
+        }
+
+        if($(".vipoota-th").length) {
+            $(".vipoota-th").click(function() {
+                $("#bioName").text("นายวิภูธา ตระกูลฮุน");
+                
+                switch(selectedMenuId) {
+                    case "menu-audit-committee":
+                        $("#bioTitle").text("ประธานคณะกรรมการตรวจสอบ");
+                        break;
+                    case "menu-risk-management-committee":
+                        $("#bioTitle").text("กรรมการกำกับดูแลความเสี่ยง");
+                        break;
+                    case "menu-board-of-directors":
+                        $("#bioTitle").text("กรรมการอิสระ");
+                        break;
+                }
+
+                $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/vipoota-th.html");
+                $("#bioModal").modal();
+            });
+        } else if($(".vipoota-eng").length) {
+            $(".vipoota-eng").click(function() {
+                $("#bioName").text("Mr. Vipoota Trakulhoon");
+
+                switch(selectedMenuId) {
+                    case "menu-audit-committee":
+                        $("#bioTitle").text("Chairman of the Audit Committee");
+                        break;
+                    case "menu-risk-management-committee":
+                        $("#bioTitle").text("Risk Management Committee");
+                        break;
+                    case "menu-board-of-directors":
+                        $("#bioTitle").text("Independent Director");
+                        break;
+                }
+                console.log(selectedMenuId);
+                $("#bioContent").attr("src", "http://www.gel.co.th/craft/templates/about/biography/vipoota-eng.html");
                 $("#bioModal").modal();
             });
         }

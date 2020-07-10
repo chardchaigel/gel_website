@@ -2,6 +2,21 @@
 {% include "_header2" %}
 {% set top = 5 %}
 
+<style>
+    .imageCenter {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        height: 100%;
+    }
+
+    .textCenter {
+        text-align: center;
+    }
+
+</style>
+
 {% include "_topbar" %}
 
 <section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head9.png');" data-img-width="1600" data-diff="100">
@@ -24,19 +39,40 @@
     -->
     
     {% if craft.i18n.getCurrentLocale() == 'th' %}
-    <div class="container" align="center" style="width:70%">
+    <div class="container" style="width:70%">
         <div class="row" style="padding-bottom:30px;">
-            ณ วันที่ 31 ธันวาคม 2560
-            <br/>
-            <b>หมายเหตุ:</b> ไม่มีบุคคลที่มีความขัดแย้งถือหุ้นในบริษัทย่อยและบริษัทร่วมเกินร้อยละ 10
+            <div id="group-structure-diagram">
+                <img class="imageCenter" src="http://www.gel.co.th/assets/images/investor/group-structure-th.png#asset:2567:url">
+            </div>
+
+            <div style="margin-top: 1em;">
+                <div class="textCenter">ข้อมูล ณ วันที่ 31 ธันวาคม 2562</div>
+                <p style="margin-top: 1em;">
+                    <b>หมายเหตุ:</b> 
+                    <ol>
+                        <li>ไม่มีบุคคลที่มีความขัดแย้งถือหุ้นในบริษัทย่อยและบริษัทร่วมเกินร้อยละ 10</li>
+                        <li>บริษัทฯถือหุ้นในบริษัท มิลล์คอน สตีล จำกัด (มหาชน) ร้อยละ 17.20 ซึ่งเป็นกิจการที่บริษัทฯ ไปลงทุนและบริษัทฯ ไม่มีอำนาจควบคุมใดๆ</li>
+                    </ol>
+                </p>
+            </div>
         </div>
     </div>
     {% else %}
-    <div class="container" align="center" style="width:70%">
+    <div class="container" style="width:70%">
         <div class="row" style="padding-bottom:30px;">
-            As at 31 December 2017
-            <br/>
-            <b>Note:</b> There were no shareholders with conflicts in subsidiary and associated companies exceeding 10%
+            <div id="group-structure-diagram">
+                <img class="imageCenter" src="http://www.gel.co.th/assets/images/investor/group-structure-eng.png#asset:2566:url">
+            </div>
+            <div style="margin-top: 1em;">
+                <div class="textCenter">As of December 31<sup>th</sup>, 2019</div>
+                <p style="margin-top: 1em;">
+                    <b>Note:</b> 
+                    <ol>
+                        <li>There were no shareholders with conflicts in subsidiary and associated companies exceeding 10%</li>
+                        <li>The company held 17.20% in Millcon Steel Public Company Limited which is invested company and the company has no any control</li>
+                    </ol>
+                </p>
+            </div>    
         </div>
     </div>
     {% endif %}

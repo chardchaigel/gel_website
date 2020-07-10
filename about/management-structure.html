@@ -2,6 +2,21 @@
 {% include "_header2" %}
 {% set top = 5 %}
 
+<style>
+    .imageCenter {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        height: 100%;
+    }
+
+    .textCenter {
+        text-align: center;
+    }
+
+</style>
+
 {% include "_topbar" %}
 
 <section class="title-page parallax" style="background-image:url('{{ craft.config.environmentVariables.baseUrl }}assets/img/head9.png');" data-img-width="1600" data-diff="100">
@@ -24,17 +39,25 @@
     -->
     
     {% if craft.i18n.getCurrentLocale() == 'th' %}
-    <div class="container" style="width:100%" align="center">
-        <div class="row">
-            <div class="col">                
+    <div class="container" style="width:70%">
+        <div class="row" style="padding-bottom:30px;">
+            <div id="group-structure-diagram">
+                <img class="imageCenter" src="http://www.gel.co.th/assets/images/investor/management-structure-eng.png#asset:2568:url">
             </div>
+            <!-- <div style="margin-top: 1em;">
+                <div class="textCenter">As of December 31<sup>th</sup>, 2019</div>
+            </div>     -->
         </div>
     </div>
     {% else %}
-    <div class="container">
-        <div class="row" style="width:100%" align="center">
-            <div class="col">
+    <div class="container" style="width:70%">
+        <div class="row" style="padding-bottom:30px;">
+            <div id="group-structure-diagram">
+                <img class="imageCenter" src="http://www.gel.co.th/assets/images/investor/management-structure-eng.png#asset:2569:url">
             </div>
+            <!-- <div style="margin-top: 1em;">
+                <div class="textCenter">As of December 31<sup>th</sup>, 2019</div>
+            </div>     -->
         </div>
     </div>
     {% endif %}
