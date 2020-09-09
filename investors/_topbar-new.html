@@ -20,10 +20,11 @@
                             <li><a href="{{ craft.entries.id(9).first().url }}">{{ craft.entries.id(9).first().title }}</a></li>
                             <li><a href="{{ craft.entries.id(10).first().url }}">{{ craft.entries.id(10).first().title }}</a></li>
                             <li><a href="{{ craft.entries.id(11).first().url }}">{{ craft.entries.id(11).first().title }}</a></li>
-                            <li><a href="{{ craft.entries.id(12).first().url }}">{{ craft.entries.id(12).first().title }}</a></li>
+                            <!--li><a href="{{ craft.entries.id(12).first().url }}">{{ craft.entries.id(12).first().title }}</a></li-->
+                            <li><a href="https://www.gelchemical.com">{{ craft.entries.id(12).first().title }}</a></li>
 
                             {% set relatedCats = craft.categories.group('constructionChemicalCategoryGroup').translated(1).first() %}
-                            <li><a href="{{ relatedCats.url }}">{% if craft.i18n.getCurrentLocale() == 'th' %}เคมีภัณฑ์ก่อสร้าง{% else %}Construction Chemical Products{% endif %}</a></li>
+                            <!--li><a href="{{ relatedCats.url }}">{% if craft.i18n.getCurrentLocale() == 'th' %}เคมีภัณฑ์ก่อสร้าง{% else %}Construction Chemical Products{% endif %}</a></li-->
                             <li><a href="{{ craft.entries.id(13).first().url }}">{{ craft.entries.id(13).first().title }}</a></li>
                         </ul>
                     </li>
